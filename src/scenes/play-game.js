@@ -1,3 +1,4 @@
+// The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
         super({ key: key });
