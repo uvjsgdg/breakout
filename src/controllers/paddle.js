@@ -1,0 +1,1 @@
+// The Paddle Controller is concerned with evaluating paddle collisions and determining their outcome in the form of potentially telling the paddle sprint how to change it's display and/or emitting paddle related events
