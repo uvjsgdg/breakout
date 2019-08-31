@@ -12,7 +12,8 @@ export default class GameOverScene extends Phaser.Scene {
     }
 
     create () {
-        this.add.text(400, 300, 'Game Over!', { fontFamily: 'Arial, Sans'});
+        let text = this.add.text(400, 300, 'Game Over!', { fontFamily: 'Arial, Sans', fontSize: '32px'});
+        text.setOrigin(0.5, 0.5);
     }
 
     update () {
