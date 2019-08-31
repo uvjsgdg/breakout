@@ -23,7 +23,9 @@ export default class PlayGameScene extends Phaser.Scene {
 
         let levelScene = this.scene.get('Level');
         levelScene.events.on('LevelComplete', () => {
-            console.log('Completed a level!');
+            this.scene.stop('Level');
+            this.scene.stop('UI');
+            this.scene.switch('GameOver');
         })
     }
 

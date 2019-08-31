@@ -1,8 +1,5 @@
 // The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
-import config from '../config/game';
-import KeyBoardController from '../controllers/keyboard';
-
-export default class PlayGameScene extends Phaser.Scene {
+export default class GameOverScene extends Phaser.Scene {
     constructor (config, key = 'GameOver') {
         super({ key: key });
     }
@@ -15,10 +12,9 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     create () {
+        this.add.text(400, 300, 'Game Over!', { fontFamily: 'Arial, Sans'});
     }
 
     update () {
-        // Debugging: giving myself points
-        //this.data.set(config.data.playerScoreKey, this.data.get(config.data.playerScoreKey) + config.player.brickValue);
     }
 };

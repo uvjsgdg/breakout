@@ -5,8 +5,9 @@ import PaddleSprite from "../sprites/paddle";
 // todo: Listen for player death
 // todo: listen for upgrades/level changes
 
-export default class PaddleController {
+export default class PaddleController extends Phaser.Events.EventEmitter {
     constructor (scene, paddleSprite, ballSprite) {
+        super();
         this.paddle = paddleSprite;
         this.ball = ballSprite;
 

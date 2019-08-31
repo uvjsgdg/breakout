@@ -12,6 +12,7 @@ import MainMenuScene from './scenes/main-menu';
 import PlayGameScene from './scenes/play-game';
 import LevelScene from './scenes/play-game/level';
 import UIScene from './scenes/play-game/ui';
+import GameOverScene from './scenes/game-over';
 
 let phaserConfig = {
     type: Phaser.AUTO,
@@ -24,7 +25,7 @@ let phaserConfig = {
             debug: true, // enable to see physics bodies outlined
         }
     },
-    scene: [LoadingScene, MainMenuScene, PlayGameScene, LevelScene, UIScene]
+    scene: [LoadingScene, MainMenuScene, PlayGameScene, LevelScene, UIScene, GameOverScene]
 }
 
 let game = new Phaser.Game(phaserConfig);
