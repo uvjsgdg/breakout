@@ -15,8 +15,6 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    paddles = null;
-
     constructor (scene, x, y) {
       this.paddles = this.physics.add.group({
           key: 'paddle',
