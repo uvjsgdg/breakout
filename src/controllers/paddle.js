@@ -22,7 +22,7 @@ export default class PaddleController {
 
         scene.input.on('pointermove', this.onMouseMove, this);
 
-        let ee = scene.scene.get('UI').events;
+        let ee = scene.scene.get('PlayGame').events;
         ee.on('downLeft',  this.onDownLeft,  this);
         ee.on('upLeft',    this.onUpLeft,    this);
         ee.on('downRight', this.onDownRight, this);

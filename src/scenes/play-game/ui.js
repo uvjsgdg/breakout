@@ -2,7 +2,6 @@
 import LivesUI from '../../ui/lives';
 import LevelUI from '../../ui/level';
 import ScoreUI from '../../ui/score';
-import KeyBoardController from '../../controllers/keyboard';
 
 export default class UIScene extends Phaser.Scene {
     constructor (config, key = 'UI') {
@@ -23,7 +22,6 @@ export default class UIScene extends Phaser.Scene {
         this.add.existing(lives);
         this.add.existing(level);
         this.add.existing(score);
-        this.keyboardsniffer = new KeyBoardController(this);
     }
 
     update () {

@@ -5,7 +5,7 @@ export default class BallController {
         this.ball = ball;
         this.ball.setData('onPaddle', true);
 
-        let ee = scene.scene.get('UI').events;
+        let ee = scene.scene.get('PlayGame').events;
         ee.on('downFire',  this.launch, this);
     }
 

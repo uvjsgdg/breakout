@@ -1,5 +1,6 @@
 // The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
 import config from '../config/game';
+import KeyBoardController from '../controllers/keyboard';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
@@ -18,6 +19,7 @@ export default class PlayGameScene extends Phaser.Scene {
     create () {
         this.scene.run('Level');
         this.scene.run('UI');
+        this.keyboardsniffer = new KeyBoardController(this);
     }
 
     update () {
