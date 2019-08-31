@@ -44,6 +44,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // paddle sprite physics settings
         paddle.body.collideWorldBounds = true;
+        paddle.setImmovable(true);
 
         // controllers
         let paddleController = new PaddleController( this, paddle );
