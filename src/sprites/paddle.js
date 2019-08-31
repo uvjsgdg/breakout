@@ -1,7 +1,7 @@
 // Paddle Sprite is concerned about the display of the paddle
 
-export default class PaddleSprite {
+export default class Paddle extends Phaser.GameObjects.Sprite {
     constructor (scene, x, y) {
-      console.log('PaddleSprite Constructor');
+        super(scene, x, y, 'spriteatlas', 'paddle');
     }
-};
+}

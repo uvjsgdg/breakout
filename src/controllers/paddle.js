@@ -15,12 +15,18 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    constructor (scene, x, y) {
-        this.paddles = this.physics.add.group({
-            key: 'paddle',
-            frameQuantity: 1,
-            collideWorldBounds: true,
-        });
+    constructor (scene) {
+        let paddle = new PaddleSprite(scene, 380, 580);
+
+        scene.add.existing( paddle );
+        scene.physics.add.existing( paddle );
+
+        // this.paddles = this.physics.add.group({
+        //     key: 'spriteatlas',
+        //     frameQuantity: 1,
+        //     frame: 'paddle',
+        //     collideWorldBounds: true,
+        // });
 
         return this.paddles;
     }

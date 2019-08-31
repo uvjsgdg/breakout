@@ -27,6 +27,8 @@ export default class LevelScene extends Phaser.Scene {
 
          let ball = new Ball(this, 400, 550);
          this.add.existing(ball);
+
+         let paddle = new PaddleController( this );
     }
 
     update () {
