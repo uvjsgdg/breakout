@@ -16,26 +16,20 @@ import PaddleSprite from "../sprites/paddle";
 
 export default class PaddleController {
     constructor (scene) {
-        let paddle = new PaddleSprite(scene, 380, 580);
+        this.paddle = new PaddleSprite(scene, 390, 580);
+        this.paddle.collideWorldBounds = true;
 
-        scene.add.existing( paddle );
-        scene.physics.add.existing( paddle );
+        scene.add.existing( this.paddle );
+        scene.physics.add.existing( this.paddle );
 
-        // this.paddles = this.physics.add.group({
-        //     key: 'spriteatlas',
-        //     frameQuantity: 1,
-        //     frame: 'paddle',
-        //     collideWorldBounds: true,
-        // });
-
-        return this.paddles;
+        scene.input.on('pointermove', this.onInput, this);
     }
 
     // handle game movement
-    onInput(){
-        console.log('onInput');
+    onInput(pointer){
+        console.log('onInput', pointer, this.paddle);
 
-        this.paddles.x = pointer.x;
+        this.paddle.x = pointer.x;
     }
 
     // handle ball collisions
