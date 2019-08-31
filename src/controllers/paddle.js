@@ -15,33 +15,23 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    this.paddles = [];
+    paddles: null
 
     constructor (scene, x, y) {
-      this.paddles = [];
-      this.createPaddle(scene, x, y);
+      this.paddles = this.physics.add.group({
+          key: 'paddle',
+          frameQuantity: 1,
+          collideWorldBounds: true,
+      });
+
       return this.paddles;
     }
 
-    createPaddle(scene, x, y){
-      this.paddles.push(new PaddleSprite(scene, x, y));
-    }
-
     // handle game movement
-    onInput(direction, magnitude){
-      console.log('onInput', 'dir', direction, 'mag', magnitude);
-    }
+    onInput(){
+      console.log('onInput');
 
-    // translate keyboard keys into game movement
-    onKeyboardInput() {
-      console.log('onKeyboardInput');
-      this.onInput();
-    }
-
-    // translate mouse movement into game movement
-    onMouseInput(){
-      console.log('onMouseInput');
-      this.onInput();
+      this.paddles.x = pointer.x;
     }
 
     // handle ball collisions
