@@ -26,8 +26,7 @@ export default class PaddleController {
 
         this.paddle.body.collideWorldBounds = true;
 
-        scene.input.on('pointermove', this.onInput, this);
-        return this.paddle;
+        scene.input.on('pointermove', this.onMouseMove, this);
 
         let ee = scene.scene.get('UI').events;
         ee.on('downLeft',  this.onDownLeft,  this);
@@ -36,6 +35,7 @@ export default class PaddleController {
         ee.on('upRight',   this.onUpRight,   this);
         ee.on('downFire',  this.onDownFire, this);
         ee.on('upFire',    this.onUpFire,   this);
+
     }
 
     // handle keyboard movement
