@@ -17,13 +17,12 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     create () {
-         // let bricks = [];
-         let brick = new Brick(this, 200, 200);
-         this.add.existing(brick);
-         // for (let i = 0; i > 10; i++ ) {
-         //     let newBrick = new Brick(this, 200, 200);
-         //     bricks.push(newBrick);
-         // }
+        let bricks = this.add.group();
+
+        for (let i = 1; i <= 11; i++) {
+            let newBrick = new Brick(this, 64 * i, 200);
+            bricks.add(newBrick, true);
+        }
 
          let ball = new Ball(this, 400, 550);
          this.add.existing(ball);
