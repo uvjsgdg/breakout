@@ -2,6 +2,8 @@ import 'phaser';
 import 'lodash';
 import 'webfontloader';
 
+import gameConfig from './config/game.json';
+
 require('./index.html'); // so we get it in the dist
 
 // import scenes
@@ -11,10 +13,10 @@ import PlayGameScene from './scenes/play-game';
 import LevelScene from './scenes/play-game/level';
 import UIScene from './scenes/play-game/ui';
 
-var gameConfig = {
+let phaserConfig = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: gameConfig.gameWidth,
+    height: gameConfig.gameHeight,
     backgroundColor: '#000000',
     physics: {
         default: 'arcade',
@@ -25,4 +27,4 @@ var gameConfig = {
     scene: [LoadingScene, MainMenuScene, PlayGameScene, LevelScene, UIScene]
 }
 
-let game = new Phaser.Game(gameConfig);
+let game = new Phaser.Game(phaserConfig);

@@ -1,5 +1,5 @@
 // json imports
-// import assetsConfig from '../config/assets.json';
+import gameConfig from '../config/game.json';
 
 // web fonts
 // import WebFont from 'webfontloader';
@@ -10,6 +10,8 @@
 // require('../../assets/sounds/sound.wav');
 // require('../../assets/json/tilemap.json');
 // require('../../assets/images/tileset.png');
+require('../../assets/json/spriteatlas.json');
+require('../../assets/images/spriteatlas.png');
 require('../../assets/images/play.png');
 
 export default class LoadingScene extends Phaser.Scene {
@@ -23,6 +25,9 @@ export default class LoadingScene extends Phaser.Scene {
     }
 
     preload () {
+        // load sprite atlas
+        this.load.atlas(gameConfig.spriteAtlas.key, gameConfig.spriteAtlas.imageFile, gameConfig.spriteAtlas.jsonFile);
+
         // load json configuration files
         // this.cache.json.add('assetsConfig', assetsConfig);
 

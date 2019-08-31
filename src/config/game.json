@@ -1,0 +1,9 @@
+{
+    "gameWidth": 800,
+    "gameHeight": 600,
+    "spriteAtlas": {
+        "key": "spriteatlas",
+        "imageFile": "spriteatlas.png",
+        "jsonFile": "spriteatlas.json"
+    }
+}
