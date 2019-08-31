@@ -78,6 +78,8 @@ export default class PaddleController {
 
     onBallCollision(ball, paddle)
     {
+        this.emit('BALL_HIT_PADDLE');
+        
         var diff = 0;
 
         if (ball.x < paddle.x)
