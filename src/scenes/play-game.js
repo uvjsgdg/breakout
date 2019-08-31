@@ -1,5 +1,4 @@
 // The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
-import Brick from '../sprites/brick';
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
         super({ key: key });
@@ -19,6 +18,8 @@ export default class PlayGameScene extends Phaser.Scene {
             let newBrick = new Brick(this, 64 * i, 200);
             bricks.add(newBrick, true);
         }
+        this.scene.start('Level');
+        this.scene.start('UI');
     }
 
     update () {

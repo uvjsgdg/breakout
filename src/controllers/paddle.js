@@ -15,46 +15,40 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    this.paddles = [];
+    constructor (scene) {
+        let paddle = new PaddleSprite(scene, 380, 580);
 
-    constructor (scene, x, y) {
-      this.paddles = [];
-      this.createPaddle(scene, x, y);
-      return this.paddles;
-    }
+        scene.add.existing( paddle );
+        scene.physics.add.existing( paddle );
 
-    createPaddle(scene, x, y){
-      this.paddles.push(new PaddleSprite(scene, x, y));
+        // this.paddles = this.physics.add.group({
+        //     key: 'spriteatlas',
+        //     frameQuantity: 1,
+        //     frame: 'paddle',
+        //     collideWorldBounds: true,
+        // });
+
+        return this.paddles;
     }
 
     // handle game movement
-    onInput(direction, magnitude){
-      console.log('onInput', 'dir', direction, 'mag', magnitude);
-    }
+    onInput(){
+        console.log('onInput');
 
-    // translate keyboard keys into game movement
-    onKeyboardInput() {
-      console.log('onKeyboardInput');
-      this.onInput();
-    }
-
-    // translate mouse movement into game movement
-    onMouseInput(){
-      console.log('onMouseInput');
-      this.onInput();
+        this.paddles.x = pointer.x;
     }
 
     // handle ball collisions
     onBallCollision () {
-      console.log('onBallCollision');
+        console.log('onBallCollision');
     }
 
     // generic handler for all collisions
     onCollision(object) {
-      console.log(object);
-      isBall = true;
-      if(isBall) {
-        this.onBallCollision();
-      }
+        console.log(object);
+        isBall = true;
+        if(isBall) {
+          this.onBallCollision();
+        }
     }
 };
