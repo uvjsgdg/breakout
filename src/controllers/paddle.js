@@ -63,17 +63,32 @@ export default class PaddleController {
         this.paddle.x = pointer.x;
     }
 
-    // handle ball collisions
-    onBallCollision () {
-        console.log('onBallCollision');
-    }
-
     // generic handler for all collisions
     onCollision(object) {
-        console.log('collided',object);
-        let isBall = true;
-        if(isBall) {
-          this.onBallCollision();
+      // emit an event
+    }
+
+    onBallCollision(ball, paddle)
+    {
+        var diff = 0;
+
+        if (ball.x < paddle.x)
+        {
+            //  Ball is on the left-hand side of the paddle
+            diff = paddle.x - ball.x;
+            ball.setVelocityX(-10 * diff);
+        }
+        else if (ball.x > paddle.x)
+        {
+            //  Ball is on the right-hand side of the paddle
+            diff = ball.x -paddle.x;
+            ball.setVelocityX(10 * diff);
+        }
+        else
+        {
+            //  Ball is perfectly in the middle
+            //  Add a little random X to stop it bouncing straight up!
+            ball.setVelocityX(2 + Math.random() * 8);
         }
     }
 };
