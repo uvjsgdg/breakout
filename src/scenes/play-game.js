@@ -12,12 +12,6 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     create () {
-        let bricks = this.add.group();
-
-        for (let i = 1; i <= 11; i++) {
-            let newBrick = new Brick(this, 64 * i, 200);
-            bricks.add(newBrick, true);
-        }
         this.scene.start('Level');
         this.scene.start('UI');
     }
