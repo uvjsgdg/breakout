@@ -21,6 +21,7 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     update () {
-        console.log('playerLives', this.data.get(config.data.playerLivesKey));
+        // Debugging: giving myself points
+        //this.data.set(config.data.playerScoreKey, this.data.get(config.data.playerScoreKey) + config.player.brickValue);
     }
 };
