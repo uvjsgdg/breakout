@@ -27,11 +27,41 @@ export default class PaddleController {
 
         scene.input.on('pointermove', this.onInput, this);
         return this.paddle;
+
+        let ee = scene.scene.get('UI').events;
+        ee.on('downLeft',  this.onDownLeft,  this);
+        ee.on('upLeft',    this.onUpLeft,    this);
+        ee.on('downRight', this.onDownRight, this);
+        ee.on('upRight',   this.onUpRight,   this);
+        ee.on('downFire',  this.onDownFire, this);
+        ee.on('upFire',    this.onUpFire,   this);
     }
 
-    // handle game movement
-    onInput(pointer){
-        console.log('onInput', pointer, this.paddle);
+    // handle keyboard movement
+    onDownLeft() {
+        console.log('Caught downLeft!');
+    }
+    onUpLeft() {
+        console.log('Caught upLeft!');
+    }
+    onDownRight() {
+        console.log('Caught downRight!');
+    }
+    onUpRight() {
+        console.log('Caught upRight!');
+    }
+
+    // handle fire button
+    onDownFire() {
+        console.log('Caught downFire!');
+    }
+    onUpFire() {
+        console.log('Caught upFire!');
+    }
+
+    // handle mouse movement
+    onMouseMove(pointer){
+        console.log('onMouseMove', pointer, this.paddle);
 
         //this.paddle.x = Phaser.Math.Clamp(pointer.x, 52, 748);
         this.paddle.x = pointer.x;
