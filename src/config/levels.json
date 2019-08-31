@@ -1,10 +1,10 @@
 {
-    "level-1": {
+    "level1": {
         "ball": { 
             "velocityX": 5,
             "velocityY": 5,
-            "startPosX": 26, // 3/4 of the way down the paddle -- measured from center
-            "startPosY": 26 // approximately 4 pixels above the paddle -- measured from center
+            "startPosX": 10,
+            "startPosY": 26
         }
     }
 }

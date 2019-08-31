@@ -10,6 +10,7 @@ export default class PlayGameScene extends Phaser.Scene {
     init () {
         this.data.set(config.data.playerLivesKey, config.player.startingLives);
         this.data.set(config.data.playerScoreKey, 0);
+        this.data.set(config.data.levelKey, 'level1');
     }
 
     preload () {

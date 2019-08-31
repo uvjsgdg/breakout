@@ -1,6 +1,8 @@
 // The Paddle Controller is concerned with evaluating paddle collisions and determining their outcome in the form of potentially telling the paddle sprite how to change it's display and/or emitting paddle related events
 // I will need the paddle sprite
 import PaddleSprite from "../sprites/paddle";
+import config from "../config/game";
+import levelConfig from "../config/levels";
 
 // todo: Listen for player death
 // todo: listen for upgrades/level changes
@@ -10,6 +12,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         super();
         this.paddle = paddleSprite;
         this.ball = ballSprite;
+        this.scene = scene;
 
         this.keySpeed = 200;
 
@@ -60,7 +63,10 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     onDownFire() {
         console.log('Caught downFire!');
         if (this.ball.getData('onPaddle')) {
-            this.ball.setVelocity(75, -300);
+            let mainGameScene = this.scene.scene.get('PlayGame');
+            let level = mainGameScene.data.get(config.data.levelKey);
+            let ballData = levelConfig[level].ball;
+            this.ball.setVelocity(ballData.velocityX, ballData.velocityY);
             this.ball.setData('onPaddle', false);
         }
     }
