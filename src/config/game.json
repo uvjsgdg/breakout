@@ -7,7 +7,7 @@
         "jsonFile": "spriteatlas.json"
     },
     "player": {
-        "startingLives": 3,
+        "startingLives": 1,
         "brickValue": 10
     },
     "data": {

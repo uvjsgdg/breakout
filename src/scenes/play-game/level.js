@@ -33,11 +33,15 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     createSprites () {
-        let bricks = this.physics.add.staticGroup();
+        const numBricks = 11;
 
-        for (let i = 1; i <= 1; i++) {
-            let newBrick = new Brick(this, 64 * i, 200);
-            bricks.add(newBrick, true);
+        let bricks = this.physics.add.staticGroup();
+       
+        for (let r = numBricks; r > 0; r--) {
+            for (let i = 1; i <= r; i++) {
+                let newBrick = new Brick(this, 64 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)));
+                bricks.add(newBrick, true);
+            }
         }
 
         let ball = new Ball(this, 400, 550);
