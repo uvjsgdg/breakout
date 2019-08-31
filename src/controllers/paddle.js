@@ -34,19 +34,19 @@ export default class PaddleController {
 
     // handle keyboard movement
     onDownLeft() {
-        console.log('Caught downLeft!');
+        //console.log('Caught downLeft!');
         this.paddle.setVelocity(-this.keySpeed,0);
     }
     onUpLeft() {
-        console.log('Caught upLeft!');
+        //console.log('Caught upLeft!');
         this.paddle.setVelocity(0,0);
     }
     onDownRight() {
-        console.log('Caught downRight!');
+        //console.log('Caught downRight!');
         this.paddle.setVelocity(this.keySpeed,0);
     }
     onUpRight() {
-        console.log('Caught upRight!');
+        //console.log('Caught upRight!');
         this.paddle.setVelocity(0,0);
     }
 
