@@ -19,9 +19,6 @@ export default class PaddleController {
         this.paddle = paddleSprite;
         this.ball = ballSprite;
 
-        this.ball.setData('onPaddle', true);
-        this.ball.setPosition(this.paddle.x + 10, this.paddle.y - 24);
-
         this.keySpeed = 200;
 
         scene.input.on('pointermove', this.onMouseMove, this);

@@ -27,7 +27,8 @@ export default class LevelScene extends Phaser.Scene {
         }
 
         let ball = new Ball(this, 400, 550);
-        let ballController = new BallController(this, ball);
+        ball.setData('onPaddle', true);
+        ball.setPosition(this.paddle.x + 10, this.paddle.y - 24);
         this.add.existing(ball);
 
         let paddle = new PaddleSprite(this, 350, 580);
