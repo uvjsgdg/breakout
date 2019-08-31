@@ -12,6 +12,9 @@ import BrickController from "../../controllers/brick";
 export default class LevelScene extends Phaser.Scene {
     constructor (config, key = 'Level') {
         super({ key: key });
+
+        let ball;
+        let paddle;
     }
 
     init () {
@@ -32,10 +35,10 @@ export default class LevelScene extends Phaser.Scene {
             bricks.add(newBrick, true);
         }
 
-        let ball = new Ball(this, 400, 550);
+        ball = new Ball(this, 400, 550);
         this.add.existing(ball);
 
-        let paddle = new PaddleSprite(this, 350, 580);
+        paddle = new PaddleSprite(this, 350, 580);
         this.add.existing(paddle);
 
         // physics enabled for each sprite
@@ -72,6 +75,12 @@ export default class LevelScene extends Phaser.Scene {
         brickController.on('BrickDestroyed', () => {
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
         });
+    }
+
+    resetBall() {
+        ball.setVelocity(0);
+        ball.setPosition(paddle.x + 10, paddle.y - 24);
+        ball.setData('onPaddle', true);
     }
 
     update () {
