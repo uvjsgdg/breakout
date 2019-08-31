@@ -23,8 +23,8 @@ export default class PaddleController {
     }
 
     // handle game movement
-    onInput(){
-      console.log('onInput');
+    onInput(direction, magnitude){
+      console.log('onInput', 'dir', direction, 'mag', magnitude);
     }
 
     // translate keyboard keys into game movement
