@@ -22,11 +22,20 @@ export default class PlayGameScene extends Phaser.Scene {
         this.keyboardsniffer = new KeyBoardController(this);
 
         let levelScene = this.scene.get('Level');
+
         levelScene.events.on('LevelComplete', () => {
-            this.scene.stop('Level');
-            this.scene.stop('UI');
-            this.scene.switch('GameOver');
-        })
+            this.gameOver();
+        });
+
+        levelScene.events.on('LevelFailed', () => {
+            this.gameOver();
+        });
+    }
+
+    gameOver () {
+        this.scene.stop('Level');
+        this.scene.stop('UI');
+        this.scene.switch('GameOver'); 
     }
 
     update () {

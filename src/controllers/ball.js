@@ -12,7 +12,7 @@ export default class BallController extends Phaser.Events.EventEmitter {
         if (down) {
             // Do a thing
             body.gameObject.destroy();
-            this.emit('ball_destroyed');
+            this.emit('BallDestroyed');
         }
     }
 }
