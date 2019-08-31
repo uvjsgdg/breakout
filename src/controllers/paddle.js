@@ -15,16 +15,10 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    constructor (scene) {
-        this.paddle = new PaddleSprite(scene, 350, 580);
-        this.paddle.frameWidth = 100;
-        this.paddle.frameHeight = 25;
+    constructor (scene, paddleSprite) {
+        this.paddle = paddleSprite;
+
         this.keySpeed = 200;
-
-        scene.add.existing( this.paddle );
-        scene.physics.add.existing( this.paddle );
-
-        this.paddle.body.collideWorldBounds = true;
 
         scene.input.on('pointermove', this.onMouseMove, this);
 
@@ -77,7 +71,7 @@ export default class PaddleController {
     // generic handler for all collisions
     onCollision(object) {
         console.log('collided',object);
-        isBall = true;
+        let isBall = true;
         if(isBall) {
           this.onBallCollision();
         }

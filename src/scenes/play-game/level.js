@@ -1,8 +1,8 @@
 // The Level subscene is concerned about displaying game sprites and establishing collisions between those sprites that, when emitted, call their respective controllers (e.g. ball sprite collides with something calls the ball controller and the other controller of the sprite the ball hit)
 import Brick from '../../sprites/brick';
 import Ball from '../../sprites/ball';
+import PaddleSprite from '../../sprites/paddle';
 import PaddleController from "../../controllers/paddle";
-
 
 export default class LevelScene extends Phaser.Scene {
     constructor (config, key = 'Level') {
@@ -28,19 +28,27 @@ export default class LevelScene extends Phaser.Scene {
         let ball = new Ball(this, 400, 550);
         this.add.existing(ball);
 
-        let paddle = new PaddleController( this );
+        let paddle = new PaddleSprite(this, 350, 580);
         this.add.existing(paddle);
 
+        // physics enabled for each sprite
         this.physics.add.existing(bricks);
         this.physics.add.existing(paddle);
         this.physics.add.existing(ball);
 
+        // ball sprite physics settings
         ball.setBounce(1, 1);
         ball.setCollideWorldBounds(true);
         ball.setVelocity(-75, -300);
 
+        // paddle sprite physics settings
+        paddle.body.collideWorldBounds = true;
+
+        // controllers
+        let paddleController = new PaddleController( this, paddle );
+
         // colliders
-        this.physics.add.collider(ball, paddle, paddle.onCollision, null, this);
+        this.physics.add.collider(ball, paddle, ball => { paddleController.onCollision(ball); }, null, this);
         this.physics.add.collider(ball, bricks);
     }
 
