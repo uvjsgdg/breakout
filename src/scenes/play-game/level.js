@@ -27,8 +27,6 @@ export default class LevelScene extends Phaser.Scene {
         }
 
         let ball = new Ball(this, 400, 550);
-        ball.setData('onPaddle', true);
-        ball.setPosition(this.paddle.x + 10, this.paddle.y - 24);
         this.add.existing(ball);
 
         let paddle = new PaddleSprite(this, 350, 580);
@@ -39,6 +37,8 @@ export default class LevelScene extends Phaser.Scene {
         this.physics.add.existing(ball);
 
         // ball sprite physics settings
+        ball.setData('onPaddle', true);
+        ball.setPosition(paddle.x + 10, paddle.y - 24);
         ball.setBounce(1, 1);
         ball.setCollideWorldBounds(true);
 
