@@ -25,16 +25,22 @@ export default class LevelScene extends Phaser.Scene {
             bricks.add(newBrick, true);
         }
         let paddle = new PaddleController( this );
+        this.add.existing(paddle);
 
         let ball = new Ball(this, 400, 550);
         this.add.existing(ball);
-        this.physics.add.existing(ball).setCollideWorldBounds(true).setBounce(1);;
+
+        this.physics.add.existing(bricks);
+        this.physics.add.existing(paddle);
+        this.physics.add.existing(ball);
+
+        ball.setBounce(1, 1);
+        ball.setCollideWorldBounds(true);
         ball.setVelocity(-75, -300);
 
-         let paddle = new PaddleController( this );
-
-         // colliders
-         this.physics.add.collider(ball, paddle, paddle.onCollision, null, this);
+        // colliders
+        this.physics.add.collider(ball, paddle, paddle.onCollision, null, this);
+        this.physics.add.collider(ball, bricks);
     }
 
     update () {
