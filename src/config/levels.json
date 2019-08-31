@@ -1,8 +1,8 @@
 {
     "level1": {
         "ball": { 
-            "velocityX": 5,
-            "velocityY": 5,
+            "velocityX": 75,
+            "velocityY": -300,
             "startPosX": 10,
             "startPosY": 26
         }
