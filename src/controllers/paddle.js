@@ -20,8 +20,8 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         ee.on('upLeft',    this.onUpLeft,    this);
         ee.on('downRight', this.onDownRight, this);
         ee.on('upRight',   this.onUpRight,   this);
-        ee.on('downFire',  this.onDownFire, this);
-        ee.on('upFire',    this.onUpFire,   this);
+        ee.on('downFire',  this.onDownFire,  this);
+        ee.on('upFire',    this.onUpFire,    this);
 
     }
 
@@ -74,8 +74,8 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
     // generic handler for all collisions
     onCollision(object) {
-      // emit an event
-      this.emit('PADDLE_HIT_SOMETHING_ELSE');
+        // emit an event
+        this.emit('PADDLE_HIT_SOMETHING_ELSE');
     }
 
     onBallCollision(ball, paddle)
@@ -84,20 +84,17 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
         var diff = 0;
 
-        if (ball.x < paddle.x)
-        {
+        if (ball.x < paddle.x) {
             //  Ball is on the left-hand side of the paddle
             diff = paddle.x - ball.x;
             ball.setVelocityX(-10 * diff);
         }
-        else if (ball.x > paddle.x)
-        {
+        else if (ball.x > paddle.x) {
             //  Ball is on the right-hand side of the paddle
             diff = ball.x -paddle.x;
             ball.setVelocityX(10 * diff);
         }
-        else
-        {
+        else {
             //  Ball is perfectly in the middle
             //  Add a little random X to stop it bouncing straight up!
             ball.setVelocityX(2 + Math.random() * 8);
