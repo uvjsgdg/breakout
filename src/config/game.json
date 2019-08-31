@@ -5,5 +5,13 @@
         "key": "spriteatlas",
         "imageFile": "spriteatlas.png",
         "jsonFile": "spriteatlas.json"
+    },
+    "player": {
+        "startingLives": 3,
+        "brickValue": 10
+    },
+    "data": {
+        "playerLivesKey": "PlayerLives",
+        "playerScoreKey": "PlayerScore"
     }
 }
