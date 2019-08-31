@@ -74,12 +74,13 @@ export default class PaddleController {
     // generic handler for all collisions
     onCollision(object) {
       // emit an event
+      this.emit('PADDLE_HIT_SOMETHING_ELSE');
     }
 
     onBallCollision(ball, paddle)
     {
-        this.emit('BALL_HIT_PADDLE');
-        
+        this.emit('PADDLE_HIT_BALL');
+
         var diff = 0;
 
         if (ball.x < paddle.x)
