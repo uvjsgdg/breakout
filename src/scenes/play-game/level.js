@@ -22,12 +22,6 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     create () {
-<<<<<<< HEAD
-        let mainGameScene = this.scene.get('PlayGame');
-        let EventLord = new Phaser.Events.EventEmitter();
-
-=======
->>>>>>> small refactor of level to group like statements into functional steps for the create hook
         this.physics.world.setBoundsCollision(true, true, true, true);
 
         this.createSprites();
@@ -104,28 +98,12 @@ export default class LevelScene extends Phaser.Scene {
         // colliders...
         // paddle detects ball collided with it
         this.physics.add.collider(ball, paddle, () => {
-<<<<<<< HEAD
-          paddleController.onBallCollision(ball, paddle);
-          EventLord.emit('PADDLE_COLLISION');
-=======
             paddleController.onBallCollision(ball, paddle);
->>>>>>> small refactor of level to group like statements into functional steps for the create hook
         }, null, this);
         // brick detects ball collided with it
         this.physics.add.collider(ball, bricks, (ball, brick) => {
             brickController.onBrickCollision(ball, brick);
-            EventLord.emit('BRICK_COLLISION');
         }, null, this);
-<<<<<<< HEAD
-
-        // brickController events...
-        // when a brick is destroyed increase player score
-        brickController.on('BrickDestroyed', () => {
-            mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
-            EventLord.emit('BRICK_COLLISION_DESTROYED')
-        });
-=======
->>>>>>> small refactor of level to group like statements into functional steps for the create hook
     }
 
     resetBall() {
