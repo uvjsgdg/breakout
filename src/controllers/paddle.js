@@ -19,6 +19,7 @@ export default class PaddleController {
         this.paddle = new PaddleSprite(scene, 350, 580);
         this.paddle.frameWidth = 100;
         this.paddle.frameHeight = 25;
+        this.keySpeed = 200;
 
         scene.add.existing( this.paddle );
         scene.physics.add.existing( this.paddle );
@@ -40,15 +41,19 @@ export default class PaddleController {
     // handle keyboard movement
     onDownLeft() {
         console.log('Caught downLeft!');
+        this.paddle.setVelocity(-this.keySpeed,0);
     }
     onUpLeft() {
         console.log('Caught upLeft!');
+        this.paddle.setVelocity(0,0);
     }
     onDownRight() {
         console.log('Caught downRight!');
+        this.paddle.setVelocity(this.keySpeed,0);
     }
     onUpRight() {
         console.log('Caught upRight!');
+        this.paddle.setVelocity(0,0);
     }
 
     // handle fire button
