@@ -1,0 +1,83 @@
+{
+	"textures": [
+		{
+			"image": "spriteatlas.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 106,
+				"h": 60
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "paddle",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 24
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 104,
+						"h": 24
+					}
+				},
+				{
+					"filename": "brick",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 1,
+						"y": 27,
+						"w": 64,
+						"h": 32
+					}
+				},
+				{
+					"filename": "ball",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 22,
+						"h": 22
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 22,
+						"h": 22
+					},
+					"frame": {
+						"x": 67,
+						"y": 27,
+						"w": 22,
+						"h": 22
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:cf2aea1b2b25f9ceb8c19b9f9af78ba1:87bec7ae045b8a12ada54f5096ead40b:1fd55e2fd82dd1a0f07657f786644695$"
+	}
+}
