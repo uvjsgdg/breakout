@@ -2,17 +2,8 @@
 // I will need the paddle sprite
 import PaddleSprite from "../sprites/paddle";
 
-// Step 1: Draw the Paddle.
-
-// Step 2: Listen for keyboard arrows or mouse movement
-
-// Step 3: Animate movement
-
-// Step 4: Listen for ball collisions
-
-// Step 5: Listen for player death
-
-// Step 5: listen for upgrades/level changes
+// todo: Listen for player death
+// todo: listen for upgrades/level changes
 
 export default class PaddleController {
     constructor (scene, paddleSprite, ballSprite) {
