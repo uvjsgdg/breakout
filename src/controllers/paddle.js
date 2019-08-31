@@ -15,8 +15,12 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    constructor (scene, paddleSprite) {
+    constructor (scene, paddleSprite, ballSprite) {
         this.paddle = paddleSprite;
+        this.ball = ballSprite;
+
+        this.ball.setData('onPaddle', true);
+        this.ball.setPosition(this.paddle.x + 10, this.paddle.y - 24);
 
         this.keySpeed = 200;
 
@@ -36,23 +40,39 @@ export default class PaddleController {
     onDownLeft() {
         //console.log('Caught downLeft!');
         this.paddle.setVelocity(-this.keySpeed,0);
+        if (this.ball.getData('onPaddle')) {
+            this.ball.setVelocity(-this.keySpeed,0);
+        }
     }
     onUpLeft() {
         //console.log('Caught upLeft!');
         this.paddle.setVelocity(0,0);
+        if (this.ball.getData('onPaddle')) {
+            this.ball.setVelocity(0,0);
+        }
     }
     onDownRight() {
         //console.log('Caught downRight!');
         this.paddle.setVelocity(this.keySpeed,0);
+        if (this.ball.getData('onPaddle')) {
+            this.ball.setVelocity(this.keySpeed,0);
+        }
     }
     onUpRight() {
         //console.log('Caught upRight!');
         this.paddle.setVelocity(0,0);
+        if (this.ball.getData('onPaddle')) {
+            this.ball.setVelocity(0,0);
+        }
     }
 
     // handle fire button
     onDownFire() {
         console.log('Caught downFire!');
+        if (this.ball.getData('onPaddle')) {
+            this.ball.setVelocity(75, -300);
+            this.ball.setData('onPaddle', false);
+        }
     }
     onUpFire() {
         console.log('Caught upFire!');

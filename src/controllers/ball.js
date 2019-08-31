@@ -10,10 +10,7 @@ export default class BallController {
     }
 
     launch() {
-        if (this.ball.getData('onPaddle')) {
-            this.ball.setVelocity(-75, -300);
-            this.ball.setData('onPaddle', false);
-        }
+        
     }
 }
 

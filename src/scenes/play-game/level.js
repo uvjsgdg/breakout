@@ -46,7 +46,7 @@ export default class LevelScene extends Phaser.Scene {
         paddle.setImmovable(true);
 
         // controllers
-        let paddleController = new PaddleController( this, paddle );
+        let paddleController = new PaddleController( this, paddle, ball );
 
         // colliders
         this.physics.add.collider(ball, paddle, () => {
