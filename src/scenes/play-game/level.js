@@ -26,6 +26,7 @@ export default class LevelScene extends Phaser.Scene {
 
     create () {
         let mainGameScene = this.scene.get('PlayGame');
+        let EventLord = new Phaser.Events.EventEmitter();
 
         this.physics.world.setBoundsCollision(true, true, true, true);
         let bricks = this.physics.add.staticGroup();
@@ -64,16 +65,19 @@ export default class LevelScene extends Phaser.Scene {
         // paddle detects ball collided with it
         this.physics.add.collider(ball, paddle, () => {
           paddleController.onBallCollision(ball, paddle);
+          EventLord.emit('PADDLE_COLLISION');
         }, null, this);
         // brick detects ball collided with it
         this.physics.add.collider(ball, bricks, (ball, brick) => {
             brickController.onBrickCollision(ball, brick);
+            EventLord.emit('BRICK_COLLISION');
         }, null, this);
 
         // brickController events...
         // when a brick is destroyed increase player score
         brickController.on('BrickDestroyed', () => {
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
+            EventLord.emit('BRICK_COLLISION_DESTROYED')
         });
     }
 
