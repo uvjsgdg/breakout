@@ -12,6 +12,7 @@
     },
     "data": {
         "playerLivesKey": "PlayerLives",
-        "playerScoreKey": "PlayerScore"
+        "playerScoreKey": "PlayerScore",
+        "levelKey": "Level"
     }
 }
