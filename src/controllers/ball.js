@@ -6,5 +6,3 @@ export default class BallController {
         this.ball.setData('onPaddle', true);
     }
 }
-
-
