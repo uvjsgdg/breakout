@@ -23,6 +23,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         ee.on('downFire',  this.onDownFire,  this);
         ee.on('upFire',    this.onUpFire,    this);
 
+        this.on('PADDLE_HIT_BALL', () => { console.log("Caught PADDLE_HIT_BALL!"); });
     }
 
     // handle keyboard movement
@@ -81,8 +82,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         this.emit('PADDLE_HIT_SOMETHING_ELSE');
     }
 
-    onBallCollision(ball, paddle)
-    {
+    onBallCollision(ball, paddle) {
         this.emit('PADDLE_HIT_BALL');
 
         var diff = 0;
