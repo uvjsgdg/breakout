@@ -70,6 +70,9 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     // handle mouse movement
     onMouseMove(pointer){
         this.paddle.x = pointer.x;
+        if (this.ball.getData('onPaddle')) {
+          this.ball.x = pointer.x;
+        }
     }
 
     // generic handler for all collisions
