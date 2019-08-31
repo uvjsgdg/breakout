@@ -19,7 +19,7 @@ export default class LevelScene extends Phaser.Scene {
 
     create () {
         this.physics.world.setBoundsCollision(true, true, true, true);
-        let bricks = this.add.group();
+        let bricks = this.physics.add.staticGroup();
 
         for (let i = 1; i <= 11; i++) {
             let newBrick = new Brick(this, 64 * i, 200);
@@ -34,7 +34,6 @@ export default class LevelScene extends Phaser.Scene {
         this.add.existing(paddle);
 
         // physics enabled for each sprite
-        this.physics.add.existing(bricks);
         this.physics.add.existing(paddle);
         this.physics.add.existing(ball);
 
