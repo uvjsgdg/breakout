@@ -54,6 +54,7 @@ export default class LevelScene extends Phaser.Scene {
         ball.setPosition(paddle.x + 10, paddle.y - 24);
         ball.setBounce(1, 1);
         ball.setCollideWorldBounds(true);
+        ball.body.onWorldBounds = true;
 
         // paddle sprite physics settings
         paddle.body.collideWorldBounds = true;
