@@ -15,11 +15,16 @@ import PaddleSprite from "../sprites/paddle";
 // Step 5: listen for upgrades/level changes
 
 export default class PaddleController {
-    this.paddle = {};
+    this.paddles = [];
 
     constructor (scene, x, y) {
-      this.paddle = new PaddleSprite(scene, x, y);
-      return this.paddle;
+      this.paddles = [];
+      this.createPaddle(scene, x, y);
+      return this.paddles;
+    }
+
+    createPaddle(scene, x, y){
+      this.paddles.push(new PaddleSprite(scene, x, y));
     }
 
     // handle game movement
