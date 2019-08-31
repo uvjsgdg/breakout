@@ -29,6 +29,9 @@ build/
 # Distributions
 dist/
 
+# Ignore generated lock file
+package-lock.json
+
 # Dependency directories
 node_modules
 jspm_packages
