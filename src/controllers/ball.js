@@ -4,13 +4,6 @@ export default class BallController {
     constructor(scene, ball) {
         this.ball = ball;
         this.ball.setData('onPaddle', true);
-
-        let ee = scene.scene.get('PlayGame').events;
-        ee.on('downFire',  this.launch, this);
-    }
-
-    launch() {
-        
     }
 }
 
