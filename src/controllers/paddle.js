@@ -16,13 +16,14 @@ import PaddleSprite from "../sprites/paddle";
 
 export default class PaddleController {
     constructor (scene) {
-        this.paddle = new PaddleSprite(scene, 390, 580);
+        this.paddle = new PaddleSprite(scene, 400, 580);
         this.paddle.collideWorldBounds = true;
 
         scene.add.existing( this.paddle );
         scene.physics.add.existing( this.paddle );
 
         scene.input.on('pointermove', this.onInput, this);
+        return this.paddle;
     }
 
     // handle game movement
