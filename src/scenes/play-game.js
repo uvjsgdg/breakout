@@ -12,6 +12,8 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     create () {
+        this.scene.start('Level');
+        this.scene.start('UI');
     }
 
     update () {
