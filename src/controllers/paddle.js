@@ -23,6 +23,36 @@ export default class PaddleController {
         scene.physics.add.existing( this.paddle );
 
         scene.input.on('pointermove', this.onMouseMove, this);
+
+        let ee = scene.scene.get('UI').events;
+        ee.on('downLeft',  this.onDownLeft,  this);
+        ee.on('upLeft',    this.onUpLeft,    this);
+        ee.on('downRight', this.onDownRight, this);
+        ee.on('upRight',   this.onUpRight,   this);
+        ee.on('downFire',  this.onDownFire, this);
+        ee.on('upFire',    this.onUpFire,   this);
+    }
+
+    // handle keyboard movement
+    onDownLeft() {
+        console.log('Caught downLeft!');
+    }
+    onUpLeft() {
+        console.log('Caught upLeft!');
+    }
+    onDownRight() {
+        console.log('Caught downRight!');
+    }
+    onUpRight() {
+        console.log('Caught upRight!');
+    }
+
+    // handle fire button
+    onDownFire() {
+        console.log('Caught downFire!');
+    }
+    onUpFire() {
+        console.log('Caught upFire!');
     }
 
     // handle mouse movement
