@@ -28,6 +28,9 @@ export default class LevelScene extends Phaser.Scene {
          this.add.existing(ball);
 
          let paddle = new PaddleController( this );
+
+         // colliders
+         this.physics.add.collider(ball, paddle, paddle.onCollision, null, this);
     }
 
     update () {

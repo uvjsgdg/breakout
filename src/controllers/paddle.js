@@ -16,11 +16,14 @@ import PaddleSprite from "../sprites/paddle";
 
 export default class PaddleController {
     constructor (scene) {
-        this.paddle = new PaddleSprite(scene, 400, 580);
-        this.paddle.collideWorldBounds = true;
+        this.paddle = new PaddleSprite(scene, 350, 580);
+        this.paddle.frameWidth = 100;
+        this.paddle.frameHeight = 25;
 
         scene.add.existing( this.paddle );
         scene.physics.add.existing( this.paddle );
+
+        this.paddle.body.collideWorldBounds = true;
 
         scene.input.on('pointermove', this.onInput, this);
         return this.paddle;
@@ -30,6 +33,7 @@ export default class PaddleController {
     onInput(pointer){
         console.log('onInput', pointer, this.paddle);
 
+        //this.paddle.x = Phaser.Math.Clamp(pointer.x, 52, 748);
         this.paddle.x = pointer.x;
     }
 
@@ -40,7 +44,7 @@ export default class PaddleController {
 
     // generic handler for all collisions
     onCollision(object) {
-        console.log(object);
+        console.log('collided',object);
         isBall = true;
         if(isBall) {
           this.onBallCollision();
