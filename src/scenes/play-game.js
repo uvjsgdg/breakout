@@ -1,6 +1,4 @@
 // The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
-import PaddleController from "../../controllers/paddle";
-
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
         super({ key: key });
