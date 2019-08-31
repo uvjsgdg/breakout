@@ -22,13 +22,13 @@ export default class PaddleController {
         scene.add.existing( this.paddle );
         scene.physics.add.existing( this.paddle );
 
-        scene.input.on('pointermove', this.onInput, this);
+        scene.input.on('pointermove', this.onMouseMove, this);
         return this.paddle;
     }
 
-    // handle game movement
-    onInput(pointer){
-        console.log('onInput', pointer, this.paddle);
+    // handle mouse movement
+    onMouseMove(pointer){
+        console.log('onMouseMove', pointer, this.paddle);
 
         this.paddle.x = pointer.x;
     }
