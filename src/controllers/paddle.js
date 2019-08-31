@@ -23,7 +23,6 @@ export default class PaddleController {
         scene.physics.add.existing( this.paddle );
 
         scene.input.on('pointermove', this.onMouseMove, this);
-        return this.paddle;
     }
 
     // handle mouse movement
