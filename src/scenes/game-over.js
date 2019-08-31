@@ -3,13 +3,11 @@ import config from '../config/game';
 import KeyBoardController from '../controllers/keyboard';
 
 export default class PlayGameScene extends Phaser.Scene {
-    constructor (config, key = 'PlayGame') {
+    constructor (config, key = 'GameOver') {
         super({ key: key });
     }
 
     init () {
-        this.data.set(config.data.playerLivesKey, config.player.startingLives);
-        this.data.set(config.data.playerScoreKey, 0);
     }
 
     preload () {
@@ -17,14 +15,6 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     create () {
-        this.scene.run('Level');
-        this.scene.run('UI');
-        this.keyboardsniffer = new KeyBoardController(this);
-
-        let levelScene = this.scene.get('Level');
-        levelScene.events.on('LevelComplete', () => {
-            console.log('Completed a level!');
-        })
     }
 
     update () {

@@ -83,6 +83,15 @@ export default class LevelScene extends Phaser.Scene {
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
         });
 
+        // when a brick is destroyed check to see if 
+        brickController.on('BrickDestroyed', () => {
+            let livingBrick = bricks.getFirstAlive();
+
+            if (!livingBrick) {
+                this.events.emit('LevelComplete');
+            }
+        });
+
         // store our create controllers into gameControllers namespace for later use
         this.gameControllers = {
             ballController,
@@ -95,11 +104,11 @@ export default class LevelScene extends Phaser.Scene {
         let { ball, bricks, paddle } = this.gameObjects;
         let { ballController, brickController, paddleController } = this.gameControllers;
 
-        // colliders...
         // paddle detects ball collided with it
         this.physics.add.collider(ball, paddle, () => {
             paddleController.onBallCollision(ball, paddle);
         }, null, this);
+
         // brick detects ball collided with it
         this.physics.add.collider(ball, bricks, (ball, brick) => {
             brickController.onBrickCollision(ball, brick);
