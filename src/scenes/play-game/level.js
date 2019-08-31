@@ -3,6 +3,7 @@ import Brick from '../../sprites/brick';
 import Ball from '../../sprites/ball';
 import PaddleSprite from '../../sprites/paddle';
 import PaddleController from "../../controllers/paddle";
+import BallController from "../../controllers/ball";
 
 export default class LevelScene extends Phaser.Scene {
     constructor (config, key = 'Level') {
@@ -26,6 +27,7 @@ export default class LevelScene extends Phaser.Scene {
         }
 
         let ball = new Ball(this, 400, 550);
+        let ballController = new BallController(this, ball);
         this.add.existing(ball);
 
         let paddle = new PaddleSprite(this, 350, 580);
@@ -39,7 +41,6 @@ export default class LevelScene extends Phaser.Scene {
         // ball sprite physics settings
         ball.setBounce(1, 1);
         ball.setCollideWorldBounds(true);
-        ball.setVelocity(-75, -300);
 
         // paddle sprite physics settings
         paddle.body.collideWorldBounds = true;
