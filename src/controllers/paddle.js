@@ -16,33 +16,33 @@ import PaddleSprite from "../sprites/paddle";
 
 export default class PaddleController {
     constructor (scene, x, y) {
-      this.paddles = this.physics.add.group({
-          key: 'paddle',
-          frameQuantity: 1,
-          collideWorldBounds: true,
-      });
+        this.paddles = this.physics.add.group({
+            key: 'paddle',
+            frameQuantity: 1,
+            collideWorldBounds: true,
+        });
 
-      return this.paddles;
+        return this.paddles;
     }
 
     // handle game movement
     onInput(){
-      console.log('onInput');
+        console.log('onInput');
 
-      this.paddles.x = pointer.x;
+        this.paddles.x = pointer.x;
     }
 
     // handle ball collisions
     onBallCollision () {
-      console.log('onBallCollision');
+        console.log('onBallCollision');
     }
 
     // generic handler for all collisions
     onCollision(object) {
-      console.log(object);
-      isBall = true;
-      if(isBall) {
-        this.onBallCollision();
-      }
+        console.log(object);
+        isBall = true;
+        if(isBall) {
+          this.onBallCollision();
+        }
     }
 };
