@@ -24,11 +24,12 @@ export default class LevelScene extends Phaser.Scene {
             let newBrick = new Brick(this, 64 * i, 200);
             bricks.add(newBrick, true);
         }
-        let paddle = new PaddleController( this );
-        this.add.existing(paddle);
 
         let ball = new Ball(this, 400, 550);
         this.add.existing(ball);
+
+        let paddle = new PaddleController( this );
+        this.add.existing(paddle);
 
         this.physics.add.existing(bricks);
         this.physics.add.existing(paddle);

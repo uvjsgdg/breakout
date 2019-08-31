@@ -66,9 +66,6 @@ export default class PaddleController {
 
     // handle mouse movement
     onMouseMove(pointer){
-        console.log('onMouseMove', pointer, this.paddle);
-
-        //this.paddle.x = Phaser.Math.Clamp(pointer.x, 52, 748);
         this.paddle.x = pointer.x;
     }
 
