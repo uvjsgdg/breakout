@@ -26,7 +26,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         ee.on('downFire',  this.onDownFire,  this);
         ee.on('upFire',    this.onUpFire,    this);
 
-        this.on('PADDLE_HIT_BALL', () => { console.log("Caught PADDLE_HIT_BALL!"); });
+        this.on('PADDLE_HIT_BALL', this.bounceBall, this);
     }
 
     // handle keyboard movement
@@ -90,19 +90,21 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
     onBallCollision(ball, paddle) {
         this.emit('PADDLE_HIT_BALL');
+    }
 
-        var diff = 0;
+    bounceBall() {
+        console.log("Caught PADDLE_HIT_BALL!");
+        var diff = this.ball.x - this.paddle.x;
 
-        if (ball.x == paddle.x) {
+        if (!diff) {
             //  Ball is perfectly in the middle
             //  Add a little random X to stop it bouncing straight up!
-            ball.setVelocityX(2 + Math.random() * 8);
+            this.ball.setVelocityX(2 + Math.random() * 8);
         }
         else {
             //  Ball is off center from the paddle
             //  Magnify delta * 10
-            diff = ball.x - paddle.x;
-            ball.setVelocityX(10 * diff);
+            this.ball.setVelocityX(10 * diff);
         }
     }
 };
