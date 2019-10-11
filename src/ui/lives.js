@@ -6,13 +6,13 @@ export default class LivesUI extends Phaser.GameObjects.Container {
 
         this._label = new Phaser.GameObjects.Text(scene, 0, 0, 'Lives: ', { fontFamily: 'Arial, Sans'});
 
-        this._score = new Phaser.GameObjects.Text(scene, 50, 0, config.player.startingLives, { fontFamily: 'Arial, Sans'});
+        this._lives = new Phaser.GameObjects.Text(scene, 50, 0, config.player.startingLives, { fontFamily: 'Arial, Sans'});
 
         this.add(this._label);
-        this.add(this._score);
+        this.add(this._lives);
 
         scene.scene.get('PlayGame').data.events.on(`changedata-${config.data.playerLivesKey}`, (scene, value) => {
-            this._score.setText(value);
+            this._lives.setText(value);
         });
     }
 }
