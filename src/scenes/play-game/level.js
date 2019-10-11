@@ -4,10 +4,12 @@ import config from '../../config/game';
 import BrickGrid from '../../sprites/brick-grid';
 import Ball from '../../sprites/ball';
 import PaddleSprite from '../../sprites/paddle';
+import PowerupSprite from '../../sprites/powerup';
 
 import PaddleController from "../../controllers/paddle";
 import BallController from "../../controllers/ball";
 import BrickController from "../../controllers/brick";
+import PowerupController from "../../controllers/powerup";
 
 import KeyBoardController from '../../controllers/keyboard';
 
@@ -48,9 +50,17 @@ export default class LevelScene extends Phaser.Scene {
         let paddle = new PaddleSprite(this, 350, 580);
         this.add.existing(paddle);
 
+        let powerup = new PowerupSprite(this, 500, 100);
+        this.add.existing(powerup);
+
         // physics enabled for each sprite
         this.physics.add.existing(paddle);
         this.physics.add.existing(ball);
+        this.physics.add.existing(powerup);
+
+        // powerup sprite physics settings
+        powerup.setCollideWorldBounds(true);
+        powerup.setVelocity(0, 100);
 
         // ball sprite physics settings
         ball.setBounce(1, 1);
@@ -65,19 +75,21 @@ export default class LevelScene extends Phaser.Scene {
         this.gameObjects = {
             ball,
             brickGrid,
-            paddle
+            paddle,
+            powerup
         };
     }
 
     createControllers () {
         let mainGameScene = this.scene.get('PlayGame');
 
-        let { ball, brickGrid, paddle } = this.gameObjects;
+        let { ball, brickGrid, paddle, powerup } = this.gameObjects;
 
         // controllers
         let paddleController = new PaddleController( this, paddle, ball );
         let ballController = new BallController(this, ball);
         let brickController = new BrickController(this);
+        let powerupController = new PowerupController(this);
 
         // when a brick is destroyed check to see if
         ballController.on('BallDestroyed', () => {
@@ -94,15 +106,21 @@ export default class LevelScene extends Phaser.Scene {
         this.gameControllers = {
             ballController,
             brickController,
-            paddleController
+            paddleController,
+            powerupController
         };
 
         paddleController.resetBall();
     }
 
     createColliders () {
-        let { ball, brickGrid, paddle } = this.gameObjects;
-        let { ballController, brickController, paddleController } = this.gameControllers;
+        let { ball, brickGrid, paddle, powerup } = this.gameObjects;
+        let {
+            ballController,
+            brickController,
+            paddleController,
+            powerupController
+        } = this.gameControllers;
 
         // paddle detects ball collided with it
         this.physics.add.collider(ball, paddle, () => {
@@ -113,6 +131,10 @@ export default class LevelScene extends Phaser.Scene {
         this.physics.add.collider(ball, brickGrid, (ball, brick) => {
             brickController.emit('ballBrickCollision', ball, brick);
         }, null, this);
+
+        this.physics.add.collider(powerup, paddle, (powerup, paddle) => {
+            powerupController.onPaddleCollision(powerup, paddle);
+        }, null, this)
     }
 
     update () {
