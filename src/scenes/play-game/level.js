@@ -90,15 +90,30 @@ export default class LevelScene extends Phaser.Scene {
         let brickController = new BrickController(this);
         let powerupController = new PowerupController(this);
 
-        // when a brick is destroyed check to see if
+        // when a ball is destroyed
         ballController.on('BallDestroyed', () => {
             mainGameScene.events.emit('LoseLife');
             paddleController.resetBall();
         });
 
+        // When a Brick is destroyed
+        brickController.on('BrickDestroyed', () => {
+            // update the score
+            let mainGameScene = this.scene.get('PlayGame');
+            // mainGameScene.sound.play("brick_pop");
+            mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
+
+            // Check for level completion
+            let { ball, brickGrid, paddle } = this.gameObjects;
+            let livingBrick = brickGrid.getFirstAlive();
+            if (!livingBrick) {
+                this.events.emit('LevelComplete');
+            }   
+        }); 
+
         // when a ball bounces off wall or ceiling
         ballController.on('WallBounce', () => {
-            mainGameScene.sound.play("wall_bounce");
+            // mainGameScene.sound.play("wall_bounce");
         });
 
         // store our create controllers into gameControllers namespace for later use
