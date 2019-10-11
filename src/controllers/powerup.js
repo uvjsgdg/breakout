@@ -8,17 +8,11 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
         this.powerup = powerup;
     }
 
-    onLeftWorld(body) {
-        console.log("Powerup left the world");
-    }
-
     onPaddleCollision(body) {
         let gamedata = this.scene.scene.get('PlayGame').data;
         let livesKey = gameConfig.data.playerLivesKey;
 
-        console.log("Powerup hit paddle");
         gamedata.set(livesKey, gamedata.get(livesKey) + 1);
         body.destroy();
-        console.log("Powerup destroyed");
     }
 }
