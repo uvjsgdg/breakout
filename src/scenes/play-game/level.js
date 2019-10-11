@@ -36,7 +36,7 @@ export default class LevelScene extends Phaser.Scene {
         const numBricks = 11;
 
         let bricks = this.physics.add.staticGroup();
-       
+
         for (let r = numBricks; r > 0; r--) {
             for (let i = 1; i <= r; i++) {
                 let newBrick = new Brick(this, 64 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)));
@@ -89,7 +89,7 @@ export default class LevelScene extends Phaser.Scene {
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
         });
 
-        // when a brick is destroyed check to see if 
+        // when a brick is destroyed check to see if
         brickController.on('BrickDestroyed', () => {
             let livingBrick = bricks.getFirstAlive();
 
@@ -98,7 +98,7 @@ export default class LevelScene extends Phaser.Scene {
             }
         });
 
-        // when a brick is destroyed check to see if 
+        // when a brick is destroyed check to see if
         ballController.on('BallDestroyed', () => {
             this.events.emit('LevelFailed');
         });
