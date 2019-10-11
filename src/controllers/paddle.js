@@ -27,6 +27,8 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         ee.on('upFire',    this.onUpFire,    this);
 
         this.on('PADDLE_HIT_BALL', this.bounceBall, this);
+
+        ee.on('puPaddleGrow', this.puPaddleGrow, this);
     }
 
     // handle keyboard movement
@@ -72,6 +74,11 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     }
     onUpFire() {
         console.log('Caught upFire!');
+    }
+
+    puPaddleGrow() {
+        console.log('Caught POWERUP PaddleGrow');
+        this.paddle.setScale(1.5,1);
     }
 
     // handle mouse movement
