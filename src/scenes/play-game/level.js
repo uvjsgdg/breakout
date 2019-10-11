@@ -67,8 +67,6 @@ export default class LevelScene extends Phaser.Scene {
             brickGrid,
             paddle
         };
-
-        this.resetBall();
     }
 
     createControllers () {
@@ -84,7 +82,7 @@ export default class LevelScene extends Phaser.Scene {
         // when a brick is destroyed check to see if
         ballController.on('BallDestroyed', () => {
             this.events.emit('LoseLife');
-            this.resetBall();
+            paddleController.resetBall();
         });
 
         // when a ball bounces off wall or ceiling
@@ -98,6 +96,8 @@ export default class LevelScene extends Phaser.Scene {
             brickController,
             paddleController
         };
+
+        paddleController.resetBall();
     }
 
     createColliders () {
@@ -115,15 +115,8 @@ export default class LevelScene extends Phaser.Scene {
         }, null, this);
     }
 
-    resetBall() {
-        let { ball, paddle } = this.gameObjects;
-        ball.setVelocity(0);
-
-        let ballData = config.ball;
-        ball.setPosition(paddle.x + ballData.startPosX, paddle.y - ballData.startPosY);
-        ball.setData('onPaddle', true);
-    }
-
     update () {
+        let { ballController, brickController, paddleController } = this.gameControllers;
+        //console.log(ballController.ball);
     }
 };
