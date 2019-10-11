@@ -11,6 +11,7 @@ import gameConfig from '../config/game.json';
 // Load Sound files
 require('../../assets/sounds/paddle_bounce.mp3');
 require('../../assets/sounds/wall_bounce.mp3');
+require('../../assets/sounds/brick_bounce.mp3');
 require('../../assets/sounds/brick_pop.mp3');
 
 // require('../../assets/json/tilemap.json');
@@ -32,6 +33,7 @@ export default class LoadingScene extends Phaser.Scene {
         // Load Sound Files
         this.load.audio("paddle_bounce","paddle_bounce.mp3");
         this.load.audio("wall_bounce","wall_bounce.mp3");
+        this.load.audio("brick_bounce","brick_bounce.mp3");
         this.load.audio("brick_pop","brick_pop.mp3");
 
         // load sprite atlas
