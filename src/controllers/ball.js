@@ -4,7 +4,6 @@ export default class BallController extends Phaser.Events.EventEmitter {
     constructor(scene, ball) {
         super();
         this.ball = ball;
-        this.ball.setData('onPaddle', true);
         this.ball.velocityMultiplier = 1;
         scene.physics.world.on('worldbounds', (body, up, down, left, right) => { this.worldBounds(body, up, down, left, right) });
     }

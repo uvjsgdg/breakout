@@ -1,7 +1,5 @@
 // The Paddle Controller is concerned with evaluating paddle collisions and determining their outcome in the form of potentially telling the paddle sprite how to change it's display and/or emitting paddle related events
 // I will need the paddle sprite
-import PaddleSprite from "../sprites/paddle";
-import config from "../config/game";
 import gameConfig from "../config/game";
 
 // todo: Listen for player death
@@ -16,9 +14,11 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
         this.keySpeed = 200;
 
+        this.ballOnPaddle = true;
+
         scene.input.on('pointermove', this.onMouseMove, this);
 
-        let ee = scene.scene.get('PlayGame').events;
+        let ee = scene.events;
         ee.on('downLeft',  this.onDownLeft,  this);
         ee.on('upLeft',    this.onUpLeft,    this);
         ee.on('downRight', this.onDownRight, this);
@@ -37,56 +37,54 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     onDownLeft() {
         //console.log('Caught downLeft!');
         this.paddle.setVelocity(-this.keySpeed,0);
-        if (this.ball.getData('onPaddle')) {
+        if (this.ballOnPaddle) {
             this.ball.setVelocity(-this.keySpeed,0);
         }
     }
     onUpLeft() {
         //console.log('Caught upLeft!');
         this.paddle.setVelocity(0,0);
-        if (this.ball.getData('onPaddle')) {
+        if (this.ballOnPaddle) {
             this.ball.setVelocity(0,0);
         }
     }
     onDownRight() {
         //console.log('Caught downRight!');
         this.paddle.setVelocity(this.keySpeed,0);
-        if (this.ball.getData('onPaddle')) {
+        if (this.ballOnPaddle) {
             this.ball.setVelocity(this.keySpeed,0);
         }
     }
     onUpRight() {
         //console.log('Caught upRight!');
         this.paddle.setVelocity(0,0);
-        if (this.ball.getData('onPaddle')) {
+        if (this.ballOnPaddle) {
             this.ball.setVelocity(0,0);
         }
     }
 
     // handle fire button
     onDownFire() {
-        console.log('Caught downFire!');
-        if (this.ball.getData('onPaddle')) {
-            let mainGameScene = this.scene.scene.get('PlayGame');
-            let level = mainGameScene.data.get(config.data.levelKey);
+        //console.log('Caught downFire!');
+        if (this.ballOnPaddle) {
             let ballData = gameConfig.ball;
             this.ball.setVelocity(ballData.velocityX, ballData.velocityY);
-            this.ball.setData('onPaddle', false);
+            this.ballOnPaddle = false;
         }
     }
     onUpFire() {
-        console.log('Caught upFire!');
+        //console.log('Caught upFire!');
     }
 
     puPaddleGrow() {
-        console.log('Caught POWERUP PaddleGrow');
+        //console.log('Caught POWERUP PaddleGrow');
         this.paddle.setScale(1.5,1);
     }
 
     // handle mouse movement
     onMouseMove(pointer){
         this.paddle.x = pointer.x;
-        if (this.ball.getData('onPaddle')) {
+        if (this.ballOnPaddle) {
           this.ball.x = pointer.x;
         }
     }
@@ -118,7 +116,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     }
 
     bounceBall() {
-        console.log("Caught PADDLE_HIT_BALL!");
+        //console.log("Caught PADDLE_HIT_BALL!");
         this.scene.sound.play("paddle_bounce");
         var diff = this.ball.x - this.paddle.x;
 

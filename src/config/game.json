@@ -38,7 +38,8 @@
     "data": {
         "playerLivesKey": "PlayerLives",
         "playerScoreKey": "PlayerScore",
-        "levelKey": "Level"
+        "levelKey": "Level",
+        "levelMapKey": "LevelMap"
     },
     "level": {
         "configToLevel": [

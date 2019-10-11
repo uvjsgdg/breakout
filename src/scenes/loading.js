@@ -21,6 +21,7 @@ require('../../assets/images/play.png');
 
 // levels
 require('../../assets/json/levels/level_1.json');
+require('../../assets/json/levels/level_2.json');
 
 export default class LoadingScene extends Phaser.Scene {
     constructor (config, key = 'Loading') {

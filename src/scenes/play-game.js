@@ -1,6 +1,5 @@
 // The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
-import config from '../config/game';
-import KeyBoardController from '../controllers/keyboard';
+import gameConfig from '../config/game';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
@@ -8,11 +7,14 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     init () {
+        // initiallize our game-wide data...
         this.level = 1;
+        this.levelMap = gameConfig.level.configToLevel[this.level - 1];
 
-        this.data.set(config.data.playerLivesKey, config.player.startingLives);
-        this.data.set(config.data.playerScoreKey, 0);
-        this.data.set(config.data.levelKey, config.level.configToLevel[this.level - 1]);
+        this.data.set(gameConfig.data.playerLivesKey, gameConfig.player.startingLives);
+        this.data.set(gameConfig.data.playerScoreKey, 0);
+        this.data.set(gameConfig.data.levelKey, this.level);
+        this.data.set(gameConfig.data.levelMapKey, this.levelMap);
     }
 
     preload () {
@@ -22,12 +24,11 @@ export default class PlayGameScene extends Phaser.Scene {
     create () {
         this.scene.run('Level');
         this.scene.run('UI');
-        this.keyboardsniffer = new KeyBoardController(this);
 
         this.levelScene = this.scene.get('Level');
 
         this.levelScene.events.on('LevelComplete', () => {
-            this.gameOver();
+            this.nextLevel();
         });
 
         this.levelScene.events.on('LevelFailed', () => {
@@ -39,6 +40,23 @@ export default class PlayGameScene extends Phaser.Scene {
         });
     }
 
+    nextLevel () {
+        this.level++;
+        this.levelMap = gameConfig.level.configToLevel[this.level - 1];
+
+        // went through all the levels
+        if (!this.levelMap) {
+            this.gameOver();
+        }
+        else {
+            this.data.set(gameConfig.data.levelKey, this.level);
+            this.data.set(gameConfig.data.levelMapKey, this.levelMap);
+
+            this.scene.stop('Level');
+            this.scene.start('Level');
+        }
+    }
+
     gameOver () {
         this.scene.stop('Level');
         this.scene.stop('UI');
@@ -46,8 +64,8 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     loseLife () {
-        this.data.set(config.data.playerLivesKey, this.data.get(config.data.playerLivesKey) - 1);
-        if (this.data.get(config.data.playerLivesKey) <= 0) {
+        this.data.set(gameConfig.data.playerLivesKey, this.data.get(gameConfig.data.playerLivesKey) - 1);
+        if (this.data.get(gameConfig.data.playerLivesKey) <= 0) {
             console.log('out of lives');
             this.levelScene.events.emit('LevelFailed');
         }
@@ -55,6 +73,6 @@ export default class PlayGameScene extends Phaser.Scene {
 
     update () {
         // Debugging: giving myself points
-        //this.data.set(config.data.playerScoreKey, this.data.get(config.data.playerScoreKey) + config.player.brickValue);
+        //this.data.set(gameConfig.data.playerScoreKey, this.data.get(gameConfig.data.playerScoreKey) + gameConfig.player.brickValue);
     }
 };

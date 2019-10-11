@@ -9,6 +9,8 @@ import PaddleController from "../../controllers/paddle";
 import BallController from "../../controllers/ball";
 import BrickController from "../../controllers/brick";
 
+import KeyBoardController from '../../controllers/keyboard';
+
 export default class LevelScene extends Phaser.Scene {
     constructor (config, key = 'Level') {
         super({ key: key });
@@ -16,12 +18,12 @@ export default class LevelScene extends Phaser.Scene {
 
     init () {
         let mainGameScene = this.scene.get('PlayGame');
-        this.level = mainGameScene.data.get(config.data.levelKey);
+        this.levelMap = mainGameScene.data.get(config.data.levelMapKey);
     }
 
     preload () {
         // loading current level data
-        this.load.tilemapTiledJSON(this.level, `${this.level}.json` )
+        this.load.tilemapTiledJSON(this.levelMap, `${this.levelMap}.json` )
     }
 
     create () {
@@ -32,10 +34,12 @@ export default class LevelScene extends Phaser.Scene {
         this.createControllers();
 
         this.createColliders();
+
+        this.keyboardsniffer = new KeyBoardController(this);
     }
 
     createSprites () {
-        let brickGrid = new BrickGrid(this, config.brickGrid.startPosX, config.brickGrid.startPosY, this.level);
+        let brickGrid = new BrickGrid(this, config.brickGrid.startPosX, config.brickGrid.startPosY, this.levelMap);
         this.add.existing(brickGrid);
         
         let ball = new Ball(this, 400, 550);
@@ -128,11 +132,9 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     resetBall() {
-        let mainGameScene = this.scene.get('PlayGame');
         let { ball, paddle } = this.gameObjects;
         ball.setVelocity(0);
 
-        let level = mainGameScene.data.get(config.data.levelKey);
         let ballData = config.ball;
         ball.setPosition(paddle.x + ballData.startPosX, paddle.y - ballData.startPosY);
         ball.setData('onPaddle', true);
