@@ -28,7 +28,8 @@
         "width": 12,
         "height": 12,
         "pixelWidth": 768,
-        "pixelHeight": 384
+        "pixelHeight": 384,
+        "tiledLayerName": "Brick Grid"
     },
     "paddle": {
         "pixelWidth": 104,
