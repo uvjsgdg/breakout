@@ -59,7 +59,6 @@ export default class LevelScene extends Phaser.Scene {
         this.physics.add.existing(powerup);
 
         // powerup sprite physics settings
-        powerup.setCollideWorldBounds(true);
         powerup.setVelocity(0, 100);
 
         // ball sprite physics settings
