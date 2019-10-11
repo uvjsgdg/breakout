@@ -43,7 +43,7 @@ export default class LevelScene extends Phaser.Scene {
     createSprites () {
         let brickGrid = new BrickGrid(this, config.brickGrid.startPosX, config.brickGrid.startPosY, this.levelMap);
         this.add.existing(brickGrid);
-        
+
         let ball = new Ball(this, 400, 550);
         this.add.existing(ball);
 
