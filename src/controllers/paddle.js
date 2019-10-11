@@ -2,7 +2,7 @@
 // I will need the paddle sprite
 import PaddleSprite from "../sprites/paddle";
 import config from "../config/game";
-import levelConfig from "../config/levels";
+import gameConfig from "../config/game";
 
 // todo: Listen for player death
 // todo: listen for upgrades/level changes
@@ -65,7 +65,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         if (this.ball.getData('onPaddle')) {
             let mainGameScene = this.scene.scene.get('PlayGame');
             let level = mainGameScene.data.get(config.data.levelKey);
-            let ballData = levelConfig[level].ball;
+            let ballData = gameConfig.ball;
             this.ball.setVelocity(ballData.velocityX, ballData.velocityY);
             this.ball.setData('onPaddle', false);
         }

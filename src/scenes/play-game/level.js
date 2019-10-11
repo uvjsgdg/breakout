@@ -1,6 +1,5 @@
 // The Level subscene is concerned about displaying game sprites and establishing collisions between those sprites that, when emitted, call their respective controllers (e.g. ball sprite collides with something calls the ball controller and the other controller of the sprite the ball hit)
 import config from '../../config/game';
-import levelConfig from '../../config/levels';
 
 import Brick from '../../sprites/brick';
 import Ball from '../../sprites/ball';
@@ -132,7 +131,7 @@ export default class LevelScene extends Phaser.Scene {
         ball.setVelocity(0);
 
         let level = mainGameScene.data.get(config.data.levelKey);
-        let ballData = levelConfig[level].ball;
+        let ballData = config.ball;
         ball.setPosition(paddle.x + ballData.startPosX, paddle.y - ballData.startPosY);
         ball.setData('onPaddle', true);
     }

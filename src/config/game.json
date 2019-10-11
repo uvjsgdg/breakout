@@ -10,6 +10,26 @@
         "startingLives": 1,
         "brickValue": 10
     },
+    "ball": { 
+        "pixelWidth": 22,
+        "pixelHeight": 22,
+        "velocityX": 75,
+        "velocityY": -300,
+        "startPosX": 10,
+        "startPosY": 26
+    },
+    "brick": {
+        "pixelWidth": 64,
+        "pixelHeight": 32,
+        "gridWidth": 12,
+        "gridHeight": 12,
+        "gridPixelWidth": 768,
+        "gridPixelHeight": 384
+    },
+    "paddle": {
+        "pixelWidth": 104,
+        "pixelHeight": 24
+    },
     "data": {
         "playerLivesKey": "PlayerLives",
         "playerScoreKey": "PlayerScore",
