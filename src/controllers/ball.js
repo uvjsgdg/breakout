@@ -5,12 +5,15 @@ export default class BallController extends Phaser.Events.EventEmitter {
         super();
         this.ball = ball;
         this.ball.setData('onPaddle', true);
-        scene.physics.world.on('worldbounds', (body, up, down) => { this.worldBounds(body, up, down) });
+        scene.physics.world.on('worldbounds', (body, up, down, left, right) => { this.worldBounds(body, up, down, left, right) });
     }
 
-    worldBounds(body, up, down) {
+    worldBounds(body, up, down, left, right) {
         if (down) {
             this.emit('BallDestroyed');
+        }
+        if (left || right || up) {
+            this.emit('WallBounce');
         }
     }
 }

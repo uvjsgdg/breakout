@@ -104,6 +104,11 @@ export default class LevelScene extends Phaser.Scene {
             this.resetBall();
         });
 
+        // when a ball bounces off wall or ceiling
+        ballController.on('WallBounce', () => {
+            mainGameScene.sound.play("wall_bounce");
+        });
+
         // store our create controllers into gameControllers namespace for later use
         this.gameControllers = {
             ballController,
