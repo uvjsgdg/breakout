@@ -1,7 +1,6 @@
 // The Level subscene is concerned about displaying game sprites and establishing collisions between those sprites that, when emitted, call their respective controllers (e.g. ball sprite collides with something calls the ball controller and the other controller of the sprite the ball hit)
 import config from '../../config/game';
 
-import Brick from '../../sprites/brick';
 import BrickGrid from '../../sprites/brick-grid';
 import Ball from '../../sprites/ball';
 import PaddleSprite from '../../sprites/paddle';

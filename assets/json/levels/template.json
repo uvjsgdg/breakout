@@ -115,6 +115,20 @@
                          "type":"string",
                          "value":"brick"
                         }]
+                }, 
+                {
+                 "id":24,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"yellow"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"brick"
+                        }]
                 }],
          "tilewidth":64
         }],
