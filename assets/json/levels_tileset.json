@@ -134,6 +134,27 @@
 						"w": 64,
 						"h": 32
 					}
+				},
+				{
+					"filename": "yellow_brick.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 0,
+						"y": 192,
+						"w": 64,
+						"h": 32
+					}
 				}
 			]
 		}
@@ -141,6 +162,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:c3f274aa8fd9f9e88b4c0e916c048016:9fef4b8655fac8205a5730ea70d90eef:8db7a17fbfe1476247e77857ce52eab8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:d26d006e069ef9d6f2e0d3df95310c48:82676d757c212cbc65876fa3309c1bad:8db7a17fbfe1476247e77857ce52eab8$"
 	}
 }

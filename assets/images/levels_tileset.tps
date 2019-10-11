@@ -187,6 +187,7 @@
             <key type="filename">spriteatlas/purple_brick.png</key>
             <key type="filename">spriteatlas/red_brick.png</key>
             <key type="filename">spriteatlas/white_brick.png</key>
+            <key type="filename">spriteatlas/yellow_brick.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -208,6 +209,7 @@
             <filename>spriteatlas/blue_brick.png</filename>
             <filename>spriteatlas/green_brick.png</filename>
             <filename>spriteatlas/orange_brick.png</filename>
+            <filename>spriteatlas/yellow_brick.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -4,32 +4,11 @@
 			"image": "spriteatlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 132,
-				"h": 132
+				"w": 162,
+				"h": 162
 			},
 			"scale": 1,
 			"frames": [
-				{
-					"filename": "ball",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 22,
-						"h": 22
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 22,
-						"h": 22
-					},
-					"frame": {
-						"x": 1,
-						"y": 1,
-						"w": 22,
-						"h": 22
-					}
-				},
 				{
 					"filename": "paddle",
 					"rotated": false,
@@ -45,10 +24,31 @@
 						"h": 24
 					},
 					"frame": {
-						"x": 25,
+						"x": 1,
 						"y": 1,
 						"w": 104,
 						"h": 24
+					}
+				},
+				{
+					"filename": "ball",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 22,
+						"h": 22
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 22,
+						"h": 22
+					},
+					"frame": {
+						"x": 107,
+						"y": 1,
+						"w": 22,
+						"h": 22
 					}
 				},
 				{
@@ -171,6 +171,27 @@
 						"h": 32
 					},
 					"frame": {
+						"x": 1,
+						"y": 129,
+						"w": 64,
+						"h": 32
+					}
+				},
+				{
+					"filename": "yellow_brick",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
 						"x": 67,
 						"y": 95,
 						"w": 64,
@@ -183,6 +204,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:0bdf86a4f203b27285b0792f5b00f232:02b9c6c53c2ad473b4c251a36694c306:1fd55e2fd82dd1a0f07657f786644695$"
+		"smartupdate": "$TexturePacker:SmartUpdate:613bd1f6511f0658a38a4498090fc54a:015774ffb60615f26fcda28e14f9a9d5:1fd55e2fd82dd1a0f07657f786644695$"
 	}
 }
