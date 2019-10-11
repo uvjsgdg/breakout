@@ -10,7 +10,7 @@
         "startingLives": 2,
         "brickValue": 100
     },
-    "ball": { 
+    "ball": {
         "pixelWidth": 22,
         "pixelHeight": 22,
         "velocityX": 75,
@@ -44,7 +44,8 @@
     "level": {
         "configToLevel": [
             "level_1",
-            "level_2"
+            "level_2",
+            "level_3"
         ]
     }
 }
