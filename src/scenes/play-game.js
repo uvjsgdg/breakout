@@ -36,7 +36,7 @@ export default class PlayGameScene extends Phaser.Scene {
     gameOver () {
         this.scene.stop('Level');
         this.scene.stop('UI');
-        this.scene.switch('GameOver'); 
+        this.scene.switch('GameOver');
     }
 
     update () {
