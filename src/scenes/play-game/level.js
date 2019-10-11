@@ -14,13 +14,13 @@ import PowerupController from "../../controllers/powerup";
 import KeyBoardController from '../../controllers/keyboard';
 
 export default class LevelScene extends Phaser.Scene {
-    constructor (config, key = 'Level') {
-        super({ key: key });
+    constructor (config) {
+        super(config);
     }
 
-    init () {
-        let mainGameScene = this.scene.get('PlayGame');
-        this.levelMap = mainGameScene.data.get(config.data.levelMapKey);
+    init (data) {
+        this.level = data.level;
+        this.levelMap = data.levelMap;
     }
 
     preload () {
@@ -92,7 +92,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // when a brick is destroyed check to see if
         ballController.on('BallDestroyed', () => {
-            this.events.emit('LoseLife');
+            mainGameScene.events.emit('LoseLife');
             paddleController.resetBall();
         });
 

@@ -25,7 +25,7 @@ let phaserConfig = {
             //debug: true, // enable to see physics bodies outlined
         }
     },
-    scene: [LoadingScene, MainMenuScene, PlayGameScene, LevelScene, UIScene, GameOverScene]
+    scene: [LoadingScene, MainMenuScene, PlayGameScene, UIScene, GameOverScene]
 }
 
 let game = new Phaser.Game(phaserConfig);

@@ -1,6 +1,9 @@
 // The Play Game scene is concerned about activating the level sub-scene and ui sub-scene
 import gameConfig from '../config/game';
 
+import LevelScene from './play-game/level';
+import { EventEmitter } from 'events';
+
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
         super({ key: key });
@@ -8,8 +11,8 @@ export default class PlayGameScene extends Phaser.Scene {
 
     init () {
         // initiallize our game-wide data...
-        this.level = 1;
-        this.levelMap = gameConfig.level.configToLevel[this.level - 1];
+        this.level = 0;
+        this.levelMap = null;
 
         this.data.set(gameConfig.data.playerLivesKey, gameConfig.player.startingLives);
         this.data.set(gameConfig.data.playerScoreKey, 0);
@@ -22,44 +25,42 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     create () {
-        this.scene.run('Level');
         this.scene.run('UI');
 
-        this.levelScene = this.scene.get('Level');
+        this.nextLevel();
 
-        this.levelScene.events.on('LevelComplete', () => {
+        this.events.on('LevelComplete', () => {
             this.nextLevel();
         });
 
-        this.levelScene.events.on('LevelFailed', () => {
-            this.gameOver();
-        });
-
-        this.levelScene.events.on('LoseLife', () => {
+        this.events.on('LoseLife', () => {
             this.loseLife();
         });
     }
 
     nextLevel () {
-        this.level++;
-        this.levelMap = gameConfig.level.configToLevel[this.level - 1];
+        const nextLevel = this.level + 1;
+        const nextLevelMap = gameConfig.level.configToLevel[nextLevel - 1];
 
         // went through all the levels
-        if (!this.levelMap) {
+        if (!nextLevelMap) {
             this.gameOver();
         }
         else {
-            this.data.set(gameConfig.data.levelKey, this.level);
-            this.data.set(gameConfig.data.levelMapKey, this.levelMap);
+            if (this.levelMap) {
+                this.scene.stop(this.levelMap);
+            }
 
-            this.scene.stop('Level');
-            this.scene.start('Level');
+            this.scene.add(nextLevelMap, LevelScene, true, {level: nextLevel, levelMap: nextLevelMap});
+
+            this.level = nextLevel;
+            this.levelMap = nextLevelMap;
         }
     }
 
     gameOver () {
-        this.scene.stop('Level');
         this.scene.stop('UI');
+        this.scene.stop(this.levelMap);
         this.scene.switch('GameOver');
     }
 
@@ -67,7 +68,7 @@ export default class PlayGameScene extends Phaser.Scene {
         this.data.set(gameConfig.data.playerLivesKey, this.data.get(gameConfig.data.playerLivesKey) - 1);
         if (this.data.get(gameConfig.data.playerLivesKey) <= 0) {
             console.log('out of lives');
-            this.levelScene.events.emit('LevelFailed');
+            this.gameOver();
         }
     }
 

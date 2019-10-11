@@ -6,8 +6,6 @@ export default class Ball extends Phaser.Physics.Arcade.Sprite {
 
         this.velocityMultiplier = 1;
 
-        console.log(scene);
-
         let ee = scene.events;
         ee.on('increaseVelocity',     () => { 
             if (!this.body) {

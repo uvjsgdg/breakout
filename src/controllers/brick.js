@@ -18,7 +18,7 @@ export default class BrickController extends Phaser.Events.EventEmitter {
             let { ball, brickGrid, paddle } = scene.gameObjects;
             let livingBrick = brickGrid.getFirstAlive();
             if (!livingBrick) {
-                scene.events.emit('LevelComplete');
+                mainGameScene.events.emit('LevelComplete');
             }
         });
     }
