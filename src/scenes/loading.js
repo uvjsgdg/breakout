@@ -7,7 +7,10 @@ import gameConfig from '../config/game.json';
 // require('../../assets/fonts/[font].ttf');
 
 // require in other assets to be included but not added to cache at this time
-// require('../../assets/sounds/sound.wav');
+
+// Load Sound files
+require('../../assets/sounds/paddle_bounce.mp3');
+
 // require('../../assets/json/tilemap.json');
 // require('../../assets/images/tileset.png');
 require('../../assets/json/spriteatlas.json');
@@ -25,6 +28,9 @@ export default class LoadingScene extends Phaser.Scene {
     }
 
     preload () {
+        // Load Sound Files
+        this.load.audio("paddle_bounce","paddle_bounce.mp3");
+
         // load sprite atlas
         this.load.atlas(gameConfig.spriteAtlas.key, gameConfig.spriteAtlas.imageFile, gameConfig.spriteAtlas.jsonFile);
 

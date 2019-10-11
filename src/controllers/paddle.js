@@ -94,6 +94,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
     bounceBall() {
         console.log("Caught PADDLE_HIT_BALL!");
+        this.scene.sound.play("paddle_bounce");
         var diff = this.ball.x - this.paddle.x;
 
         if (!diff) {
