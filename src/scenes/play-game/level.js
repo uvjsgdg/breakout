@@ -2,6 +2,7 @@
 import config from '../../config/game';
 
 import Brick from '../../sprites/brick';
+import {BlueBrick, GreenBrick, YellowBrick, OrangeBrick, RedBrick, PurpleBrick, WhiteBrick} from '../../sprites/coloredBrick';
 import Ball from '../../sprites/ball';
 import PaddleSprite from '../../sprites/paddle';
 
@@ -32,13 +33,25 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     createSprites () {
-        const numBricks = 11;
+        const numBricks = 6;
 
         let bricks = this.physics.add.staticGroup();
 
         for (let r = numBricks; r > 0; r--) {
             for (let i = 1; i <= r; i++) {
-                let newBrick = new Brick(this, 64 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)), 'blue_brick');
+                let newBrick = new PurpleBrick(this, 200 * i + (32 * (numBricks - r)), (32 * (numBricks - r)));
+                bricks.add(newBrick, true);
+            }
+        }
+        for (let r = numBricks; r > 0; r--) {
+            for (let i = 1; i <= r; i++) {
+                let newBrick = new OrangeBrick(this, 264 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)));
+                bricks.add(newBrick, true);
+            }
+        }
+        for (let r = numBricks; r > 0; r--) {
+            for (let i = 1; i <= r; i++) {
+                let newBrick = new BlueBrick(this, 164 * i + (32 * (numBricks - r)), 200 + (32 * (numBricks - r)));
                 bricks.add(newBrick, true);
             }
         }
