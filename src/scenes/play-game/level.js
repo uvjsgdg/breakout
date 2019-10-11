@@ -38,7 +38,7 @@ export default class LevelScene extends Phaser.Scene {
 
         for (let r = numBricks; r > 0; r--) {
             for (let i = 1; i <= r; i++) {
-                let newBrick = new Brick(this, 64 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)));
+                let newBrick = new Brick(this, 64 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)), 'blue_brick');
                 bricks.add(newBrick, true);
             }
         }
