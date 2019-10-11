@@ -93,20 +93,16 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
         var diff = 0;
 
-        if (ball.x < paddle.x) {
-            //  Ball is on the left-hand side of the paddle
-            diff = paddle.x - ball.x;
-            ball.setVelocityX(-10 * diff);
-        }
-        else if (ball.x > paddle.x) {
-            //  Ball is on the right-hand side of the paddle
-            diff = ball.x -paddle.x;
-            ball.setVelocityX(10 * diff);
-        }
-        else {
+        if (ball.x == paddle.x) {
             //  Ball is perfectly in the middle
             //  Add a little random X to stop it bouncing straight up!
             ball.setVelocityX(2 + Math.random() * 8);
+        }
+        else {
+            //  Ball is off center from the paddle
+            //  Magnify delta * 10
+            diff = ball.x - paddle.x;
+            ball.setVelocityX(10 * diff);
         }
     }
 };
