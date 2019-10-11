@@ -2,7 +2,7 @@
 import config from '../../config/game';
 
 import Brick from '../../sprites/brick';
-import {BlueBrick, GreenBrick, YellowBrick, OrangeBrick, RedBrick, PurpleBrick, WhiteBrick} from '../../sprites/coloredBrick';
+import BrickGrid from '../../sprites/brick-grid';
 import Ball from '../../sprites/ball';
 import PaddleSprite from '../../sprites/paddle';
 
@@ -33,29 +33,9 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     createSprites () {
-        const numBricks = 6;
-
-        let bricks = this.physics.add.staticGroup();
-
-        for (let r = numBricks; r > 0; r--) {
-            for (let i = 1; i <= r; i++) {
-                let newBrick = new PurpleBrick(this, 200 * i + (32 * (numBricks - r)), (32 * (numBricks - r)));
-                bricks.add(newBrick, true);
-            }
-        }
-        for (let r = numBricks; r > 0; r--) {
-            for (let i = 1; i <= r; i++) {
-                let newBrick = new OrangeBrick(this, 264 * i + (32 * (numBricks - r)), 100 + (32 * (numBricks - r)));
-                bricks.add(newBrick, true);
-            }
-        }
-        for (let r = numBricks; r > 0; r--) {
-            for (let i = 1; i <= r; i++) {
-                let newBrick = new BlueBrick(this, 164 * i + (32 * (numBricks - r)), 200 + (32 * (numBricks - r)));
-                bricks.add(newBrick, true);
-            }
-        }
-
+        let brickGrid = new BrickGrid(this, config.brickGrid.startPosX, config.brickGrid.startPosY);
+        this.add.existing(brickGrid);
+        
         let ball = new Ball(this, 400, 550);
         this.add.existing(ball);
 
@@ -78,7 +58,7 @@ export default class LevelScene extends Phaser.Scene {
         // store our created sprites in our gameObjects namespace for later use
         this.gameObjects = {
             ball,
-            bricks,
+            brickGrid,
             paddle
         };
 
@@ -88,7 +68,7 @@ export default class LevelScene extends Phaser.Scene {
     createControllers () {
         let mainGameScene = this.scene.get('PlayGame');
 
-        let { ball, bricks, paddle } = this.gameObjects;
+        let { ball, brickGrid, paddle } = this.gameObjects;
 
         // controllers
         let paddleController = new PaddleController( this, paddle, ball );
@@ -104,7 +84,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // when a brick is destroyed check to see if
         brickController.on('BrickDestroyed', () => {
-            let livingBrick = bricks.getFirstAlive();
+            let livingBrick = brickGrid.getFirstAlive();
 
             if (!livingBrick) {
                 this.events.emit('LevelComplete');
@@ -131,7 +111,7 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     createColliders () {
-        let { ball, bricks, paddle } = this.gameObjects;
+        let { ball, brickGrid, paddle } = this.gameObjects;
         let { ballController, brickController, paddleController } = this.gameControllers;
 
         // paddle detects ball collided with it
@@ -140,7 +120,7 @@ export default class LevelScene extends Phaser.Scene {
         }, null, this);
 
         // brick detects ball collided with it
-        this.physics.add.collider(ball, bricks, (ball, brick) => {
+        this.physics.add.collider(ball, brickGrid, (ball, brick) => {
             brickController.onBrickCollision(ball, brick);
         }, null, this);
     }

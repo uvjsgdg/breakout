@@ -20,11 +20,15 @@
     },
     "brick": {
         "pixelWidth": 64,
-        "pixelHeight": 32,
-        "gridWidth": 12,
-        "gridHeight": 12,
-        "gridPixelWidth": 768,
-        "gridPixelHeight": 384
+        "pixelHeight": 32
+    },
+    "brickGrid": {
+        "startPosX": 16,
+        "startPosY": 100,
+        "width": 12,
+        "height": 12,
+        "pixelWidth": 768,
+        "pixelHeight": 384
     },
     "paddle": {
         "pixelWidth": 104,
@@ -34,5 +38,10 @@
         "playerLivesKey": "PlayerLives",
         "playerScoreKey": "PlayerScore",
         "levelKey": "Level"
+    },
+    "level": {
+        "configToLevel": [
+            "level_1"
+        ]
     }
 }
