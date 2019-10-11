@@ -108,7 +108,7 @@
             <key>sizeConstraints</key>
             <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
             <key>forceSquared</key>
-            <false/>
+            <true/>
             <key>maxRects</key>
             <struct type="AlgorithmMaxRectsSettings">
                 <key>heuristic</key>
@@ -181,7 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../../Downloads/ball.png</key>
+            <key type="filename">spriteatlas/ball.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -194,7 +194,12 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../../../../Downloads/brick.png</key>
+            <key type="filename">spriteatlas/blue_brick.png</key>
+            <key type="filename">spriteatlas/green_brick.png</key>
+            <key type="filename">spriteatlas/orange_brick.png</key>
+            <key type="filename">spriteatlas/purple_brick.png</key>
+            <key type="filename">spriteatlas/red_brick.png</key>
+            <key type="filename">spriteatlas/white_brick.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -207,7 +212,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../../../../Downloads/paddle.png</key>
+            <key type="filename">spriteatlas/paddle.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -223,9 +228,14 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../../../Downloads/brick.png</filename>
-            <filename>../../../../../Downloads/ball.png</filename>
-            <filename>../../../../../Downloads/paddle.png</filename>
+            <filename>spriteatlas/ball.png</filename>
+            <filename>spriteatlas/blue_brick.png</filename>
+            <filename>spriteatlas/green_brick.png</filename>
+            <filename>spriteatlas/orange_brick.png</filename>
+            <filename>spriteatlas/paddle.png</filename>
+            <filename>spriteatlas/purple_brick.png</filename>
+            <filename>spriteatlas/red_brick.png</filename>
+            <filename>spriteatlas/white_brick.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
