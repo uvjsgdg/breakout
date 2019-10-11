@@ -100,7 +100,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         if (!diff) {
             //  Ball is perfectly in the middle
             //  Add a little random X to stop it bouncing straight up!
-            this.ball.setVelocityX(2 + Math.random() * 8);
+            this.ball.setVelocityX(4 - Math.random() * 8);
         }
         else {
             //  Ball is off center from the paddle
