@@ -127,7 +127,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // brick detects ball collided with it
         this.physics.add.collider(ball, brickGrid, (ball, brick) => {
-            brickController.onBrickCollision(ball, brick);
+            brickController.emit('ballBrickCollision', ball, brick);
         }, null, this);
     }
 
