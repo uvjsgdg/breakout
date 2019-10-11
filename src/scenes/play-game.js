@@ -22,14 +22,18 @@ export default class PlayGameScene extends Phaser.Scene {
         this.scene.run('UI');
         this.keyboardsniffer = new KeyBoardController(this);
 
-        let levelScene = this.scene.get('Level');
+        this.levelScene = this.scene.get('Level');
 
-        levelScene.events.on('LevelComplete', () => {
+        this.levelScene.events.on('LevelComplete', () => {
             this.gameOver();
         });
 
-        levelScene.events.on('LevelFailed', () => {
+        this.levelScene.events.on('LevelFailed', () => {
             this.gameOver();
+        });
+
+        this.levelScene.events.on('LoseLife', () => {
+            this.loseLife();
         });
     }
 
@@ -37,6 +41,14 @@ export default class PlayGameScene extends Phaser.Scene {
         this.scene.stop('Level');
         this.scene.stop('UI');
         this.scene.switch('GameOver');
+    }
+
+    loseLife () {
+        this.data.set(config.data.playerLivesKey, this.data.get(config.data.playerLivesKey) - 1);
+        if (this.data.get(config.data.playerLivesKey) <= 0) {
+            console.log('out of lives');
+            this.levelScene.events.emit('LevelFailed');
+        }
     }
 
     update () {

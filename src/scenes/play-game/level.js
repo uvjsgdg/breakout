@@ -99,7 +99,8 @@ export default class LevelScene extends Phaser.Scene {
 
         // when a brick is destroyed check to see if
         ballController.on('BallDestroyed', () => {
-            this.events.emit('LevelFailed');
+            this.events.emit('LoseLife');
+            this.resetBall();
         });
 
         // store our create controllers into gameControllers namespace for later use
