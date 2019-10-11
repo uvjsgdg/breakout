@@ -25,6 +25,8 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         ee.on('upRight',   this.onUpRight,   this);
         ee.on('downFire',  this.onDownFire,  this);
         ee.on('upFire',    this.onUpFire,    this);
+        ee.on('increaseVelocity',     this.increaseBallVelocity,    this);
+        ee.on('decreaseVelocity',     this.decreaseBallVelocity,    this);
 
         this.on('PADDLE_HIT_BALL', this.bounceBall, this);
 
@@ -99,6 +101,22 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         this.emit('PADDLE_HIT_BALL');
     }
 
+    increaseBallVelocity() {
+        this.ball.velocityMultiplier = this.ball.velocityMultiplier * 1.5;
+        console.log("increase speed, " + this.ball.velocityMultiplier);
+        this.ball.setVelocityY((this.ball.body.velocity.y * this.ball.velocityMultiplier));
+        this.ball.setVelocityX((this.ball.body.velocity.x * this.ball.velocityMultiplier));
+        console.log("x,y speed: " + this.ball.body.velocity.x + ", " + this.ball.body.velocity.y);
+    }
+
+    decreaseBallVelocity() {
+        this.ball.velocityMultiplier = this.ball.velocityMultiplier * .6666666666666666666666666666666666666;
+        console.log("decrease speed, " + this.ball.velocityMultiplier);
+        this.ball.setVelocityY((this.ball.body.velocity.y * this.ball.velocityMultiplier));
+        this.ball.setVelocityX((this.ball.body.velocity.x * this.ball.velocityMultiplier));
+        console.log("x,y speed: " + this.ball.body.velocity.x + ", " + this.ball.body.velocity.y);
+    }
+
     bounceBall() {
         console.log("Caught PADDLE_HIT_BALL!");
         this.scene.sound.play("paddle_bounce");
@@ -107,12 +125,13 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         if (!diff) {
             //  Ball is perfectly in the middle
             //  Add a little random X to stop it bouncing straight up!
-            this.ball.setVelocityX(4 - Math.random() * 8);
+            this.ball.setVelocityX((4 - Math.random() * 8) * this.ball.velocityMultiplier);
         }
         else {
             //  Ball is off center from the paddle
             //  Magnify delta * 10
-            this.ball.setVelocityX(10 * diff);
+            this.ball.setVelocityX((10 * diff) * this.ball.velocityMultiplier);
         }
+        console.log("x,y speed: " + this.ball.body.velocity.x + ", " + this.ball.body.velocity.y);
     }
 };
