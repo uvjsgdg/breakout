@@ -43,5 +43,7 @@ export default class BrickController extends Phaser.Events.EventEmitter {
         var MINTINT = 0x666666;
         var tintFactor = Math.round(0x99 * brick.lives / brick.maxLives);
         brick.setTint(MINTINT + 0x010101 * tintFactor);
+        let mainGameScene = this.scene.scene.get('PlayGame');
+        mainGameScene.sound.play("brick_pop");
     }
 };
