@@ -85,6 +85,7 @@ export default class LevelScene extends Phaser.Scene {
         // brickController events...
         // when a brick is destroyed increase player score
         brickController.on('BrickDestroyed', () => {
+            mainGameScene.sound.play("brick_pop");
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
         });
 
