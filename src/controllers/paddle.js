@@ -25,6 +25,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         ee.on('upRight',   this.onUpRight,   this);
         ee.on('downFire',  this.onDownFire,  this);
         ee.on('upFire',    this.onUpFire,    this);
+        ee.on('postupdate',this.onPostupdate,this);
 
         this.on('PADDLE_HIT_BALL', this.bounceBall, this);
 
@@ -119,5 +120,11 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
         this.ball.setVelocity(0);
         this.ball.setPosition(this.paddle.x + ballData.startPosX, this.paddle.y - ballData.startPosY);
         this.ballOnPaddle = true;
+    }
+
+    onPostupdate() {
+        if (this.ballOnPaddle) {
+            this.resetBall();
+        }
     }
 };

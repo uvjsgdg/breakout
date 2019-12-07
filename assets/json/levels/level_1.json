@@ -129,6 +129,34 @@
                          "type":"string",
                          "value":"brick"
                         }]
+                }, 
+                {
+                 "id":7,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"brown"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"brick"
+                        }]
+                }, 
+                {
+                 "id":8,
+                 "properties":[
+                        {
+                         "name":"subtype",
+                         "type":"string",
+                         "value":"bomb"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"powerup"
+                        }]
                 }],
          "tilewidth":64
         }],

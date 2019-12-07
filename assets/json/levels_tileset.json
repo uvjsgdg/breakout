@@ -10,7 +10,7 @@
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "01_blue_brick.png",
+					"filename": "01_blue_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -31,7 +31,7 @@
 					}
 				},
 				{
-					"filename": "02_green_brick.png",
+					"filename": "02_green_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -52,7 +52,7 @@
 					}
 				},
 				{
-					"filename": "03_orange_brick.png",
+					"filename": "03_orange_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -73,7 +73,7 @@
 					}
 				},
 				{
-					"filename": "04_purple_brick.png",
+					"filename": "04_purple_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -94,7 +94,7 @@
 					}
 				},
 				{
-					"filename": "05_red_brick.png",
+					"filename": "05_red_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -115,7 +115,7 @@
 					}
 				},
 				{
-					"filename": "06_white_brick.png",
+					"filename": "06_white_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -136,7 +136,7 @@
 					}
 				},
 				{
-					"filename": "07_yellow_brick.png",
+					"filename": "07_yellow_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -157,7 +157,7 @@
 					}
 				},
 				{
-					"filename": "08_brown_brick.png",
+					"filename": "08_brown_brick",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -178,7 +178,7 @@
 					}
 				},
 				{
-					"filename": "09_powerup_bomb.png",
+					"filename": "09_powerup_bomb",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -204,6 +204,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:94f42aaf22bb3125f5ca726f07dd5bbe:c4e5bc845df9dcaf9aa7b87d558abe71:8db7a17fbfe1476247e77857ce52eab8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:5da59d788c8a77962bdca45ac8f29c1e:c4e5bc845df9dcaf9aa7b87d558abe71:8db7a17fbfe1476247e77857ce52eab8$"
 	}
 }
