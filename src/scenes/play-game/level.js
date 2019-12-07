@@ -106,10 +106,10 @@ export default class LevelScene extends Phaser.Scene {
             // Check for level completion
             let { ball, brickGrid, paddle } = this.gameObjects;
             let livingBricks = brickGrid.getChildren();
-            let breakableBrick = undefined;
-            livingBricks.forEach(function(brick) {
+            let breakableBrick = false;
+            livingBricks.forEach((brick) => {
                 if (brick.breakable && brick.active) {
-                    breakableBrick = brick;
+                    breakableBrick = true;
                 }
             });
             if (!breakableBrick) {
@@ -119,7 +119,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // when a ball bounces off wall or ceiling
         ballController.on('WallBounce', () => {
-            // mainGameScene.sound.play("wall_bounce");
+            mainGameScene.sound.play("wall_bounce");
         });
 
         // store our create controllers into gameControllers namespace for later use
