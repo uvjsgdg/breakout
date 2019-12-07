@@ -10,6 +10,48 @@
 			"scale": 1,
 			"frames": [
 				{
+					"filename": "muzzleflash3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 17,
+						"w": 125,
+						"h": 96
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 125,
+						"h": 96
+					}
+				},
+				{
+					"filename": "paddle",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 24
+					},
+					"frame": {
+						"x": 1,
+						"y": 99,
+						"w": 104,
+						"h": 24
+					}
+				},
+				{
 					"filename": "01_blue_brick",
 					"rotated": false,
 					"trimmed": false,
@@ -24,8 +66,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 1,
-						"y": 1,
+						"x": 107,
+						"y": 99,
 						"w": 64,
 						"h": 32
 					}
@@ -45,31 +87,10 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 1,
-						"y": 35,
+						"x": 128,
+						"y": 1,
 						"w": 64,
 						"h": 32
-					}
-				},
-				{
-					"filename": "paddle",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 104,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 104,
-						"h": 24
-					},
-					"frame": {
-						"x": 1,
-						"y": 69,
-						"w": 104,
-						"h": 24
 					}
 				},
 				{
@@ -87,8 +108,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 67,
-						"y": 1,
+						"x": 128,
+						"y": 35,
 						"w": 64,
 						"h": 32
 					}
@@ -108,92 +129,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 67,
-						"y": 35,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "05_red_brick",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
-						"x": 107,
-						"y": 69,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "06_white_brick",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
-						"x": 133,
-						"y": 1,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "07_yellow_brick",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
-						"x": 133,
-						"y": 35,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "08_brown_brick",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
 						"x": 1,
-						"y": 95,
+						"y": 125,
 						"w": 64,
 						"h": 32
 					}
@@ -214,8 +151,50 @@
 					},
 					"frame": {
 						"x": 67,
-						"y": 95,
+						"y": 125,
 						"w": 34,
+						"h": 32
+					}
+				},
+				{
+					"filename": "05_red_brick",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 103,
+						"y": 133,
+						"w": 64,
+						"h": 32
+					}
+				},
+				{
+					"filename": "06_white_brick",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 1,
+						"y": 159,
+						"w": 64,
 						"h": 32
 					}
 				},
@@ -234,10 +213,52 @@
 						"h": 22
 					},
 					"frame": {
-						"x": 103,
-						"y": 103,
+						"x": 67,
+						"y": 159,
 						"w": 22,
 						"h": 22
+					}
+				},
+				{
+					"filename": "07_yellow_brick",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 169,
+						"y": 133,
+						"w": 64,
+						"h": 32
+					}
+				},
+				{
+					"filename": "08_brown_brick",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 173,
+						"y": 69,
+						"w": 64,
+						"h": 32
 					}
 				}
 			]
@@ -246,6 +267,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:881aded36f4e80015566d9f4bd2b8747:562c8a0984ecb68544ea6b5e810f8a5d:1fd55e2fd82dd1a0f07657f786644695$"
+		"smartupdate": "$TexturePacker:SmartUpdate:f66d6c0e08e817c2dd588eaf88f09085:0e98ed8ef0dd86f5eacd84f6e5cec047:1fd55e2fd82dd1a0f07657f786644695$"
 	}
 }

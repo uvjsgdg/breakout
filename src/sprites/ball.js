@@ -1,8 +1,8 @@
 // Ball Sprite is concerned about the display of the ball
-// import config from '../config/game';
+import config from '../config/game';
 export default class Ball extends Phaser.Physics.Arcade.Sprite {
     constructor (scene, x, y) {
-        super(scene, x, y, 'spriteatlas', 'ball');
+        super(scene, x, y, config.spriteAtlas.key, 'ball');
 
         this.velocityMultiplier = 1;
 
@@ -36,6 +36,22 @@ export default class Ball extends Phaser.Physics.Arcade.Sprite {
 
     setIsExplosive (isExplosive) {
         this._isExplosive = isExplosive;
+
+        if (isExplosive === true) {
+            let particles = this.scene.add.particles(config.spriteAtlas.key, 'muzzleflash3');
+
+            this.particleEmitter = particles.createEmitter({
+                alpha: { start: 1, end: 0 },
+                scale: { start: 0.2, end: 0.75 },
+                accelerationY: -300,
+                angle: { min: -85, max: -95 },
+                rotate: { min: -180, max: 180 },
+                blendMode: 'ADD',
+                frequency: 110
+            });
+
+            this.particleEmitter.startFollow(this); 
+        }
     }
 
     get isExplosive () { return this._isExplosive; }
