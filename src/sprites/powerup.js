@@ -9,5 +9,7 @@ export default class PowerupSprite extends Phaser.Physics.Arcade.Sprite {
         if (type == 'ball') {
             this.setTint(0xff0000);
         }
+
+        this.type = 'powerup';
     }
 }

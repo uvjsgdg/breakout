@@ -5,5 +5,7 @@ export default class Brick extends Phaser.Physics.Arcade.Sprite {
         super(scene, x, y, config.spriteAtlas.key, color);
 
         this.lives = 1;
+
+        this.type = 'brick';
     }
 }

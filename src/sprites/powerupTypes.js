@@ -8,5 +8,7 @@ export class BombPowerup extends Powerup {
         this.maxLives = config.powerup.types.bomb.maxLives;
         this.breakable = config.powerup.types.bomb.breakable;
         this.lives = this.maxLives;
+
+        this.subtype = 'bomb';
     }
 }
