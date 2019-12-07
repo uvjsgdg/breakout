@@ -80,7 +80,7 @@ export default class LevelScene extends Phaser.Scene {
         let paddleController = new PaddleController( this, paddle, ball );
         let ballController = new BallController(this, ball);
         let brickController = new BrickController(this);
-        let powerupController = new PowerupController(this);
+        let powerupController = new PowerupController(this, paddle, brickGrid);
 
         // when a ball is destroyed
         ballController.on('BallDestroyed', () => {
@@ -89,7 +89,7 @@ export default class LevelScene extends Phaser.Scene {
         });
 
         // When a Brick is destroyed
-        brickController.on('BrickDestroyed', (x, y) => {
+        brickController.on('BrickDestroyed', (x, y, tile) => {
             // update the score
             let mainGameScene = this.scene.get('PlayGame');
             mainGameScene.sound.play("brick_pop");
@@ -108,7 +108,7 @@ export default class LevelScene extends Phaser.Scene {
                 mainGameScene.events.emit('LevelComplete');
             }
             else {
-                powerupController.checkPowerup(x, y);
+                powerupController.checkPowerup(x, y, tile);
             }
         });
 
