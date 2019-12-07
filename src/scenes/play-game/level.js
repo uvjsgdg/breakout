@@ -116,7 +116,7 @@ export default class LevelScene extends Phaser.Scene {
                     powerupController.onPaddleCollision(powerup, paddle);
                 }, null, this);
             }
-        }); 
+        });
 
         // when a ball bounces off wall or ceiling
         ballController.on('WallBounce', () => {
