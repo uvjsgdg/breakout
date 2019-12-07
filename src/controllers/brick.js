@@ -4,14 +4,13 @@ export default class BrickController extends Phaser.Events.EventEmitter {
         super();
         this.scene = scene;
         this.on('ballBrickCollision', (ball, brick) => {
-            this.brickCollision(ball, brick);
+            if(brick.breakable){
+                this.brickCollision(ball, brick);
+            }
         });
     }
 
     brickCollision(ball, brick) {
-        if(!brick.breakable){
-            return;
-        }
         brick.lives--;
 
         if (brick.lives == 0) {
