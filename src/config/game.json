@@ -57,6 +57,16 @@
             }
         }
     },
+    "powerup": {
+        "pixelWidth": 64,
+        "pixelHeight": 32, 
+        "types": {
+            "bomb": {
+                "maxLives": 1,
+                "breakable": true
+            }
+        }
+    },
     "brickGrid": {
         "startPosX": 16,
         "startPosY": 100,
@@ -100,7 +110,12 @@
             "level_20",
             "level_21",
             "level_22",
-            "level_24"
+            "level_23",
+            "level_24",
+            "level_25",
+            "level_26",
+            "level_27",
+            "level_28"
         ]
     }
 }

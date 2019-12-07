@@ -43,7 +43,12 @@ require('../../assets/json/levels/level_19.json');
 require('../../assets/json/levels/level_20.json');
 require('../../assets/json/levels/level_21.json');
 require('../../assets/json/levels/level_22.json');
+require('../../assets/json/levels/level_23.json');
 require('../../assets/json/levels/level_24.json');
+require('../../assets/json/levels/level_25.json');
+require('../../assets/json/levels/level_26.json');
+require('../../assets/json/levels/level_27.json');
+require('../../assets/json/levels/level_28.json');
 
 export default class LoadingScene extends Phaser.Scene {
     constructor (config, key = 'Loading') {
