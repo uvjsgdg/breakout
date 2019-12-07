@@ -90,7 +90,7 @@ export default class LevelScene extends Phaser.Scene {
         });
 
         // When a Brick is destroyed
-        brickController.on('BrickDestroyed', (x, y, tile) => {
+        brickController.on('BrickDestroyed', (tile) => {
             // update the score
             let mainGameScene = this.scene.get('PlayGame');
             this.play("brick_pop");
@@ -109,7 +109,7 @@ export default class LevelScene extends Phaser.Scene {
                 mainGameScene.events.emit('LevelComplete');
             }
             else {
-                powerupController.checkPowerup(x, y, tile);
+                powerupController.checkPowerup(tile);
             }
         });
 
