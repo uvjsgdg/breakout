@@ -7,7 +7,7 @@
         "jsonFile": "spriteatlas.json"
     },
     "player": {
-        "startingLives": 1,
+        "startingLives": 2,
         "brickValue": 100
     },
     "ball": {
@@ -20,7 +20,30 @@
     },
     "brick": {
         "pixelWidth": 64,
-        "pixelHeight": 32
+        "pixelHeight": 32,
+        "colors": {
+            "blue": {
+                "maxLives": 1
+            },
+            "green": {
+                "maxLives": 2
+            },
+            "yellow": {
+                "maxLives": 3
+            },
+            "orange": {
+                "maxLives": 4
+            },
+            "red": {
+                "maxLives": 5
+            },
+            "purple": {
+                "maxLives": 6
+            },
+            "while": {
+                "maxLives": 100
+            }
+        }
     },
     "brickGrid": {
         "startPosX": 16,
