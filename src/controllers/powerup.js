@@ -18,7 +18,8 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
     }
 
     checkPowerup(x, y) {
-        let powerup = new PowerupSprite(this.scene, x, y); 
+        let powerup = new PowerupSprite(this.scene, x, y);
+        let { ball, brickGrid, paddle } = this.scene.gameObjects;
         this.scene.add.existing(powerup);
         this.scene.physics.add.existing(powerup);
         powerup.setVelocity(0, 100);
@@ -26,5 +27,5 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
             this.onPaddleCollision(powerup, paddle);
         }, null, this.scene);
     }
-    
+
 }
