@@ -24,12 +24,12 @@
          "columns":1,
          "firstgid":1,
          "image":"..\/..\/images\/levels_tileset.png",
-         "imageheight":256,
+         "imageheight":512,
          "imagewidth":64,
          "margin":0,
          "name":"levels_tileset",
          "spacing":0,
-         "tilecount":13,
+         "tilecount":16,
          "tileheight":32,
          "tiles":[
                 {
@@ -142,6 +142,20 @@
                          "name":"type",
                          "type":"string",
                          "value":"brick"
+                        }]
+                }, 
+                {
+                 "id":8,
+                 "properties":[
+                        {
+                         "name":"subtype",
+                         "type":"string",
+                         "value":"bomb"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"powerup"
                         }]
                 }],
          "tilewidth":64

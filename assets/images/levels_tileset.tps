@@ -97,7 +97,7 @@
             <key>width</key>
             <int>64</int>
             <key>height</key>
-            <int>256</int>
+            <int>512</int>
         </QSize>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
@@ -189,6 +189,7 @@
             <key type="filename">spriteatlas/06_white_brick.png</key>
             <key type="filename">spriteatlas/07_yellow_brick.png</key>
             <key type="filename">spriteatlas/08_brown_brick.png</key>
+            <key type="filename">spriteatlas/09_powerup_bomb.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -212,6 +213,7 @@
             <filename>spriteatlas/06_white_brick.png</filename>
             <filename>spriteatlas/07_yellow_brick.png</filename>
             <filename>spriteatlas/08_brown_brick.png</filename>
+            <filename>spriteatlas/09_powerup_bomb.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
