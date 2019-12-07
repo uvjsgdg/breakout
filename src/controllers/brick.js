@@ -20,8 +20,10 @@ export default class BrickController extends Phaser.Events.EventEmitter {
     }
 
     breakBrick(brick) {
+        let brick_x = brick.x;
+        let brick_y = brick.y;
         brick.destroy(true);
-        this.emit('BrickDestroyed');
+        this.emit('BrickDestroyed', brick_x, brick_y);
     }
 
     tintBrick(brick) {
