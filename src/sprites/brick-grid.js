@@ -43,6 +43,11 @@ export default class BrickGrid extends Phaser.Physics.Arcade.StaticGroup {
         }
     }
 
+    getTileData (x, y) {
+        const layer = map.getLayer(config.brickGrid.tiledLayerName);
+        return layer.data[y][x];
+    }
+
     createBrick (brickType, x, y) {
         const map = {
             "blue": BlueBrick,

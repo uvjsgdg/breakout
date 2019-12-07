@@ -3,10 +3,11 @@ import gameConfig from '../config/game';
 import PowerupSprite from '../sprites/powerup';
 
 export default class PowerupController extends Phaser.Events.EventEmitter {
-    constructor(scene, powerup) {
+    constructor(scene, paddle, brickGrid) {
         super();
         this.scene = scene;
-        this.powerup = powerup;
+        this.paddleSprite = paddle;
+        this.brickGridSprite = brickGrid;
     }
 
     onPaddleCollision(body) {
@@ -18,13 +19,17 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
     }
 
     checkPowerup(x, y) {
+        // create new powerup
         let powerup = new PowerupSprite(this.scene, x, y);
-        let { ball, brickGrid, paddle } = this.scene.gameObjects;
         this.scene.add.existing(powerup);
         this.scene.physics.add.existing(powerup);
+
+        // push it down to the bottom
         powerup.setVelocity(0, 100);
-        this.scene.physics.add.collider(powerup, paddle, (powerup, paddle) => {
-            this.onPaddleCollision(powerup, paddle);
+
+        // let the paddle collide with it
+        this.scene.physics.add.collider(powerup, this.paddleSprite, (powerup, paddle) => {
+            this.onPaddleCollision(powerup, this.paddleSprite);
         }, null, this.scene);
     }
 

@@ -80,7 +80,7 @@ export default class LevelScene extends Phaser.Scene {
         let paddleController = new PaddleController( this, paddle, ball );
         let ballController = new BallController(this, ball);
         let brickController = new BrickController(this);
-        let powerupController = new PowerupController(this);
+        let powerupController = new PowerupController(this, paddle, brickGrid);
 
         // when a ball is destroyed
         ballController.on('BallDestroyed', () => {
