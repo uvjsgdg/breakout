@@ -113,7 +113,7 @@ export default class LevelScene extends Phaser.Scene {
                 }
             });
             if (!breakableBrick) {
-                this.events.emit('LevelComplete');
+                mainGameScene.events.emit('LevelComplete');
             }
         }); 
 
