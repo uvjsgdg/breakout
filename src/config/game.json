@@ -24,25 +24,32 @@
         "pixelHeight": 32,
         "colors": {
             "blue": {
-                "maxLives": 1
+                "maxLives": 1,
+                "breakable": true
             },
             "green": {
-                "maxLives": 2
+                "maxLives": 2,
+                "breakable": true
             },
             "yellow": {
-                "maxLives": 3
+                "maxLives": 3,
+                "breakable": true
             },
             "orange": {
-                "maxLives": 4
+                "maxLives": 4,
+                "breakable": true
             },
             "red": {
-                "maxLives": 5
+                "maxLives": 5,
+                "breakable": true
             },
             "purple": {
-                "maxLives": 6
+                "maxLives": 6,
+                "breakable": true
             },
             "white": {
-                "maxLives": 100
+                "maxLives": 100,
+                "breakable": false
             }
         }
     },

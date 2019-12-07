@@ -71,6 +71,8 @@ export default class PlayGameScene extends Phaser.Scene {
 
             this.level = level;
             this.levelMap = levelMap;
+
+            this.events.emit(`changedata-${gameConfig.data.levelKey}`, this, level);
         }
     }
 

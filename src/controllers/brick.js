@@ -1,29 +1,14 @@
 // The Brick Controller is concerned with evaluating brick collisions and determining their outcome in the form of potentially telling the brick sprint how to change it's display and/or emitting brick related events
-import config from '../config/game';
-
 export default class BrickController extends Phaser.Events.EventEmitter {
     constructor (scene) {
         super();
         this.scene = scene;
         this.on('ballBrickCollision', (ball, brick) => {
-            this.onBrickCollision(ball, brick);
-        });
-        this.on('BrickDestroyed', () => {
-            // apply the score from breaking the brick
-            let mainGameScene = scene.scene.get('PlayGame');
-            mainGameScene.sound.play("brick_pop");
-            mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
-
-            // Check for level completion
-            let { ball, brickGrid, paddle } = scene.gameObjects;
-            let livingBrick = brickGrid.getFirstAlive();
-            if (!livingBrick) {
-                mainGameScene.events.emit('LevelComplete');
-            }
+            this.brickCollision(ball, brick);
         });
     }
 
-    onBrickCollision(ball, brick) {
+    brickCollision(ball, brick) {
         brick.lives--;
 
         if (brick.lives == 0) {
