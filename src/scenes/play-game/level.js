@@ -105,10 +105,16 @@ export default class LevelScene extends Phaser.Scene {
 
             // Check for level completion
             let { ball, brickGrid, paddle } = this.gameObjects;
-            let livingBrick = brickGrid.getFirstAlive();
-            if (!livingBrick) {
+            let livingBricks = brickGrid.getChildren();
+            let breakableBrick = undefined;
+            livingBricks.forEach(function(brick) {
+                if (brick.breakable && brick.active) {
+                    breakableBrick = brick;
+                }
+            });
+            if (!breakableBrick) {
                 this.events.emit('LevelComplete');
-            }   
+            }
         }); 
 
         // when a ball bounces off wall or ceiling
