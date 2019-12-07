@@ -100,7 +100,7 @@ export default class LevelScene extends Phaser.Scene {
         brickController.on('BrickDestroyed', () => {
             // update the score
             let mainGameScene = this.scene.get('PlayGame');
-            // mainGameScene.sound.play("brick_pop");
+            mainGameScene.sound.play("brick_pop");
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
 
             // Check for level completion
