@@ -81,20 +81,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
 
     // handle mouse movement
     onMouseMove(pointer){
-        this.setX(pointer.x);
-    }
-
-    setX(x){
-        this.paddle.x = x;
-        if (this.paddle.x < this.paddle.width/2){
-            this.paddle.x = this.paddle.width/2;
-        }
-        else if(this.paddle.x > this.scene.cameras.main.width - this.paddle.width/2){
-            this.paddle.x = this.scene.cameras.main.width - this.paddle.width/2;
-        }
-        if (this.ballOnPaddle) {
-            this.ball.x = this.paddle.x;
-        }
+        this.paddle.x = pointer.x;
     }
 
     // generic handler for all collisions
@@ -128,15 +115,9 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     resetBall() {
         const ballData = gameConfig.ball;
 
-        const ball = this.ball;
-        const paddle = this.paddle;
         this.ball.velocityMultiplier = 1;
         this.ball.setVelocity(0);
-        // Velocity doesn't immediately clear. Add a new action to the queue for setting the ball position so that
-        // this will happen after the velocity clearing has passed through the event queue.
-        setTimeout(function cb() {
-            ball.setPosition(paddle.x + ballData.startPosX, paddle.y - ballData.startPosY);
-        });
+        this.ball.setPosition(this.paddle.x + ballData.startPosX, this.paddle.y - ballData.startPosY);
         this.ballOnPaddle = true;
     }
 };
