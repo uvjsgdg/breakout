@@ -17,6 +17,16 @@ export default class Cheats {
                 console.cheats.set_infinite_lives = (enable = true) => {
                     this.setInfiniteLives(enable);
                 };
+
+                console.cheats.sound_effects = (enable = true) => {
+                    if (enable) {
+                        this.playGame.soundEffects = true;
+                    }
+                    else {
+                        this.playGame.soundEffects = false;
+                    }
+                    return true;
+                };
             });
         }
     }

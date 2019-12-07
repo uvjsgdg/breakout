@@ -21,6 +21,7 @@ export default class LevelScene extends Phaser.Scene {
     init (data) {
         this.level = data.level;
         this.levelMap = data.levelMap;
+        this.soundEffects = true;
     }
 
     preload () {
@@ -92,7 +93,7 @@ export default class LevelScene extends Phaser.Scene {
         brickController.on('BrickDestroyed', (x, y, tile) => {
             // update the score
             let mainGameScene = this.scene.get('PlayGame');
-            mainGameScene.sound.play("brick_pop");
+            this.play("brick_pop");
             mainGameScene.data.set(config.data.playerScoreKey, mainGameScene.data.get(config.data.playerScoreKey) + config.player.brickValue);
 
             // Check for level completion
@@ -114,7 +115,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // when a ball bounces off wall or ceiling
         ballController.on('WallBounce', () => {
-            mainGameScene.sound.play("wall_bounce");
+            this.play("wall_bounce");
         });
 
         // store our create controllers into gameControllers namespace for later use
@@ -151,5 +152,12 @@ export default class LevelScene extends Phaser.Scene {
     update () {
         let { ballController, brickController, paddleController } = this.gameControllers;
         //console.log(ballController.ball);
+    }
+
+    play (sound) {
+        let mainGameScene = this.scene.get('PlayGame');
+        if (mainGameScene.soundEffects)
+            mainGameScene.sound.play(sound);
+        return true;
     }
 };
