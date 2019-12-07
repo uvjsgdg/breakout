@@ -5,7 +5,7 @@
 			"format": "RGBA8888",
 			"size": {
 				"w": 64,
-				"h": 256
+				"h": 512
 			},
 			"scale": 1,
 			"frames": [
@@ -176,6 +176,27 @@
 						"w": 64,
 						"h": 32
 					}
+				},
+				{
+					"filename": "09_powerup_bomb.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 0,
+						"y": 256,
+						"w": 64,
+						"h": 32
+					}
 				}
 			]
 		}
@@ -183,6 +204,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:ccc34b7dc8dc268ecc0f66e9a95dc732:95c47cf5234c9529b7515d268ec69364:8db7a17fbfe1476247e77857ce52eab8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:94f42aaf22bb3125f5ca726f07dd5bbe:c4e5bc845df9dcaf9aa7b87d558abe71:8db7a17fbfe1476247e77857ce52eab8$"
 	}
 }

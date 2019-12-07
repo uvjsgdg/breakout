@@ -4,8 +4,8 @@
 			"image": "spriteatlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 162,
-				"h": 162
+				"w": 256,
+				"h": 256
 			},
 			"scale": 1,
 			"frames": [
@@ -45,10 +45,31 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 67,
-						"y": 1,
+						"x": 1,
+						"y": 35,
 						"w": 64,
 						"h": 32
+					}
+				},
+				{
+					"filename": "paddle",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 24
+					},
+					"frame": {
+						"x": 1,
+						"y": 69,
+						"w": 104,
+						"h": 24
 					}
 				},
 				{
@@ -66,8 +87,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 1,
-						"y": 35,
+						"x": 67,
+						"y": 1,
 						"w": 64,
 						"h": 32
 					}
@@ -108,7 +129,7 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 1,
+						"x": 107,
 						"y": 69,
 						"w": 64,
 						"h": 32
@@ -129,8 +150,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 67,
-						"y": 69,
+						"x": 133,
+						"y": 1,
 						"w": 64,
 						"h": 32
 					}
@@ -150,8 +171,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 1,
-						"y": 103,
+						"x": 133,
+						"y": 35,
 						"w": 64,
 						"h": 32
 					}
@@ -171,9 +192,30 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 67,
-						"y": 103,
+						"x": 1,
+						"y": 95,
 						"w": 64,
+						"h": 32
+					}
+				},
+				{
+					"filename": "09_powerup_bomb",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 0,
+						"w": 34,
+						"h": 32
+					},
+					"frame": {
+						"x": 67,
+						"y": 95,
+						"w": 34,
 						"h": 32
 					}
 				},
@@ -192,31 +234,10 @@
 						"h": 22
 					},
 					"frame": {
-						"x": 133,
+						"x": 103,
 						"y": 103,
 						"w": 22,
 						"h": 22
-					}
-				},
-				{
-					"filename": "paddle",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 104,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 104,
-						"h": 24
-					},
-					"frame": {
-						"x": 1,
-						"y": 137,
-						"w": 104,
-						"h": 24
 					}
 				}
 			]
@@ -225,6 +246,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:83c83e4470d29dbaa56098992c3e47ce:abbf87505180abed5313cd63f1254070:1fd55e2fd82dd1a0f07657f786644695$"
+		"smartupdate": "$TexturePacker:SmartUpdate:881aded36f4e80015566d9f4bd2b8747:562c8a0984ecb68544ea6b5e810f8a5d:1fd55e2fd82dd1a0f07657f786644695$"
 	}
 }

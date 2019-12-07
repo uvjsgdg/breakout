@@ -95,14 +95,14 @@
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>-1</int>
+            <int>256</int>
             <key>height</key>
-            <int>-1</int>
+            <int>256</int>
         </QSize>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -142,7 +142,7 @@
         <key>outputFormat</key>
         <enum type="SettingsBase::OutputFormat">RGBA8888</enum>
         <key>alphaHandling</key>
-        <enum type="SettingsBase::AlphaHandling">ClearTransparentPixels</enum>
+        <enum type="SettingsBase::AlphaHandling">KeepTransparentPixels</enum>
         <key>contentProtection</key>
         <struct type="ContentProtection">
             <key>key</key>
@@ -189,6 +189,7 @@
             <key type="filename">spriteatlas/06_white_brick.png</key>
             <key type="filename">spriteatlas/07_yellow_brick.png</key>
             <key type="filename">spriteatlas/08_brown_brick.png</key>
+            <key type="filename">spriteatlas/09_powerup_bomb.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -240,6 +241,7 @@
             <filename>spriteatlas/06_white_brick.png</filename>
             <filename>spriteatlas/07_yellow_brick.png</filename>
             <filename>spriteatlas/08_brown_brick.png</filename>
+            <filename>spriteatlas/09_powerup_bomb.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
