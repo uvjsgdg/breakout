@@ -40,7 +40,7 @@
             "purple": {
                 "maxLives": 6
             },
-            "while": {
+            "white": {
                 "maxLives": 100
             }
         }
