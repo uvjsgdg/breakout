@@ -24,6 +24,23 @@ require('../../assets/images/play.png');
 require('../../assets/json/levels/level_1.json');
 require('../../assets/json/levels/level_2.json');
 require('../../assets/json/levels/level_3.json');
+require('../../assets/json/levels/level_4.json');
+require('../../assets/json/levels/level_5.json');
+require('../../assets/json/levels/level_6.json');
+require('../../assets/json/levels/level_7.json');
+require('../../assets/json/levels/level_8.json');
+require('../../assets/json/levels/level_9.json');
+require('../../assets/json/levels/level_10.json');
+require('../../assets/json/levels/level_11.json');
+require('../../assets/json/levels/level_12.json');
+require('../../assets/json/levels/level_13.json');
+require('../../assets/json/levels/level_14.json');
+require('../../assets/json/levels/level_15.json');
+require('../../assets/json/levels/level_16.json');
+require('../../assets/json/levels/level_17.json');
+require('../../assets/json/levels/level_18.json');
+require('../../assets/json/levels/level_19.json');
+require('../../assets/json/levels/level_20.json');
 
 export default class LoadingScene extends Phaser.Scene {
     constructor (config, key = 'Loading') {
