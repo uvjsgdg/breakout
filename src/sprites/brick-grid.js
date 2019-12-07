@@ -1,6 +1,7 @@
 // The Brick Grid is concerned with display of a grid of bricks 
 import config from '../config/game';
-import {BlueBrick, GreenBrick, YellowBrick, OrangeBrick, RedBrick, PurpleBrick, WhiteBrick, BrownBrick} from './coloredBrick';
+import { BlueBrick, GreenBrick, YellowBrick, OrangeBrick, RedBrick, PurpleBrick, WhiteBrick, BrownBrick } from './coloredBrick';
+import { BombPowerup } from './powerupTypes';
 
 export default class BrickGrid extends Phaser.Physics.Arcade.StaticGroup {
     constructor (scene, x, y, level) {
@@ -21,13 +22,23 @@ export default class BrickGrid extends Phaser.Physics.Arcade.StaticGroup {
             for (let x = 0; x < map.width; x++) {
                 const tile = layer.data[y][x];
                 const tileType = tile.properties.type;
-                if (!tileType || tileType !== 'brick') {
+
+                if (!tileType || !tileType.match(/^(brick|powerup)$/)) {
                     continue;
                 }
 
-                const brick = this.createBrick(tile.properties.color, this.x + tile.width / 2 + x * tile.width, this.y + tile.height / 2 + y * tile.height);
-                this.add(brick);
-                this.scene.add.existing(brick);
+                let tileSprite;
+                switch(tileType) {
+                    case "brick":
+                        tileSprite = this.createBrick(tile.properties.color, this.x + tile.width / 2 + x * tile.width, this.y + tile.height / 2 + y * tile.height);
+                        break;
+                    case "powerup":
+                        tileSprite = this.createPowerup(tile.properties.subtype, this.x + tile.width / 2 + x * tile.width, this.y + tile.height / 2 + y * tile.height);
+                        break;
+                }
+
+                this.add(tileSprite);
+                this.scene.add.existing(tileSprite);
             }
         }
     }
@@ -41,11 +52,21 @@ export default class BrickGrid extends Phaser.Physics.Arcade.StaticGroup {
             "red": RedBrick,
             "purple": PurpleBrick,
             "white": WhiteBrick,
-            "brown": BrownBrick,
+            "brown": BrownBrick
         };
 
         const BrickClass = map[brickType];
 
         return new BrickClass(this.scene, x, y);
+    }
+
+    createPowerup (powerupType, x, y) {
+        const map = {
+            "bomb": BombPowerup
+        };
+
+        const PowerupClass = map[powerupType];
+
+        return new PowerupClass(this.scene, x, y);
     }
 }
