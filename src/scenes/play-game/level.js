@@ -108,15 +108,9 @@ export default class LevelScene extends Phaser.Scene {
                 mainGameScene.events.emit('LevelComplete');
             }
             else {
-                let powerup = new PowerupSprite(this, x, y);
-                this.add.existing(powerup);
-                this.physics.add.existing(powerup);
-                powerup.setVelocity(0, 100);
-                this.physics.add.collider(powerup, paddle, (powerup, paddle) => {
-                    powerupController.onPaddleCollision(powerup, paddle);
-                }, null, this);
+                powerupController.checkPowerup(x, y);
             }
-        }); 
+        });
 
         // when a ball bounces off wall or ceiling
         ballController.on('WallBounce', () => {

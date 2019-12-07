@@ -1,5 +1,6 @@
 // The Powerup Controller
 import gameConfig from '../config/game';
+import PowerupSprite from '../sprites/powerup';
 
 export default class PowerupController extends Phaser.Events.EventEmitter {
     constructor(scene, powerup) {
@@ -15,4 +16,15 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
         gamedata.set(livesKey, gamedata.get(livesKey) + 1);
         body.destroy();
     }
+
+    checkPowerup(x, y) {
+        let powerup = new PowerupSprite(this.scene, x, y); 
+        this.scene.add.existing(powerup);
+        this.scene.physics.add.existing(powerup);
+        powerup.setVelocity(0, 100);
+        this.scene.physics.add.collider(powerup, paddle, (powerup, paddle) => {
+            this.onPaddleCollision(powerup, paddle);
+        }, null, this.scene);
+    }
+    
 }
