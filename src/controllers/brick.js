@@ -9,6 +9,9 @@ export default class BrickController extends Phaser.Events.EventEmitter {
     }
 
     brickCollision(ball, brick) {
+        if(!brick.breakable){
+            return;
+        }
         brick.lives--;
 
         if (brick.lives == 0) {
