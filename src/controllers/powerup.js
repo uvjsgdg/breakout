@@ -28,7 +28,6 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
                 this.generatePowerupFromPowerupTile(x, y, tile);
                 break;
         }
-        
     }
 
     generatePowerup(x, y, PowerupClass = PowerupSprite, collisionCallback = () => {}) {
@@ -51,7 +50,7 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
     generatePowerupFromBrickTile(x, y, tile) {
         // eventually this will check the brick tile to see if there is a particular powerup to drop, right now just drops the default one (extra life)
         this.generatePowerup(x, y);
-    } 
+    }
 
     generatePowerupFromPowerupTile(x, y, tile) {
         let PowerupClass;
@@ -69,5 +68,5 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
         this.generatePowerup(x, y, PowerupClass, (powerup, paddle) => {
             this.scene.events.emit("BallIsExplosiveStarted");
         });
-    } 
+    }
 }
