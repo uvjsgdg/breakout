@@ -19,13 +19,13 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
         body.destroy();
     }
 
-    checkPowerup(x, y, tile) {
+    checkPowerup(tile) {
         switch(tile.type) {
             case "brick":
-                this.generatePowerupFromBrickTile(x, y, tile);
+                this.generatePowerupFromBrickTile(tile);
                 break;
             case "powerup":
-                this.generatePowerupFromPowerupTile(x, y, tile);
+                this.generatePowerupFromPowerupTile(tile);
                 break;
         }
     }
@@ -47,12 +47,14 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
         }, null, this.scene);
     }
 
-    generatePowerupFromBrickTile(x, y, tile) {
+    generatePowerupFromBrickTile(tile) {
         // eventually this will check the brick tile to see if there is a particular powerup to drop, right now just drops the default one (extra life)
-        this.generatePowerup(x, y);
-    }
+        if (this.spawnCheck()) {
+            this.generatePowerup(tile.x, tile.y);
+        }
+    } 
 
-    generatePowerupFromPowerupTile(x, y, tile) {
+    generatePowerupFromPowerupTile(tile) {
         let PowerupClass;
         switch(tile.subtype) {
             case "bomb":
@@ -65,8 +67,17 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
             throw new Error("could not find powerup", tile);
         }
 
-        this.generatePowerup(x, y, PowerupClass, (powerup, paddle) => {
+        this.generatePowerup(tile.x, tile.y, PowerupClass, (powerup, paddle) => {
             this.scene.events.emit("BallIsExplosiveStarted");
         });
+    } 
+
+    spawnCheck() {
+        if (Math.random() < 0.3) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
