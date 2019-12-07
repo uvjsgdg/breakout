@@ -2,7 +2,7 @@
 import gameConfig from '../config/game';
 
 import LevelScene from './play-game/level';
-import { EventEmitter } from 'events';
+import Cheats from '../controllers/cheats';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
@@ -13,6 +13,7 @@ export default class PlayGameScene extends Phaser.Scene {
         // initiallize our game-wide data...
         this.level = 0;
         this.levelMap = null;
+        this.playerHasInifiniteLives = false;
 
         this.data.set(gameConfig.data.playerLivesKey, gameConfig.player.startingLives);
         this.data.set(gameConfig.data.playerScoreKey, 0);
@@ -25,17 +26,52 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     create () {
-        this.scene.run('UI');
+        this.scene.run("UI");
 
         this.nextLevel();
 
-        this.events.on('LevelComplete', () => {
+        this.events.on("LevelComplete", () => {
             this.nextLevel();
         });
 
-        this.events.on('LoseLife', () => {
+        this.events.on("LoseLife", () => {
             this.loseLife();
         });
+
+        this.events.on("ChangeLevel", ({ level }) => {
+            this.changeLevel(level);
+        });
+
+        this.events.on("SetInfiniteLives", ({ enable }) => {
+            this.playerHasInifiniteLives = enable;
+        });
+
+        // cheats (if enabled in config)
+        this.cheats = new Cheats(this);
+    }
+
+    changeLevel (level) {
+        const levelMap = gameConfig.level.configToLevel[level - 1];
+
+        if (this.level === level) {
+            throw new Error("Cound not change to the same level we are already on.");
+        }
+
+        // went through all the levels
+        if (!levelMap) {
+            throw new Error("Could not find level", level);
+        }
+        else {
+            if (this.levelMap) {
+                this.scene.stop(this.levelMap);
+            }
+
+            this.scene.remove(this.levelMap);
+            this.scene.add(levelMap, LevelScene, true, {level, levelMap});
+
+            this.level = level;
+            this.levelMap = levelMap;
+        }
     }
 
     nextLevel () {
@@ -46,16 +82,8 @@ export default class PlayGameScene extends Phaser.Scene {
         if (!nextLevelMap) {
             this.gameOver();
         }
-        else {
-            if (this.levelMap) {
-                this.scene.stop(this.levelMap);
-            }
 
-            this.scene.add(nextLevelMap, LevelScene, true, {level: nextLevel, levelMap: nextLevelMap});
-
-            this.level = nextLevel;
-            this.levelMap = nextLevelMap;
-        }
+        this.changeLevel(nextLevel);
     }
 
     gameOver () {
@@ -65,10 +93,12 @@ export default class PlayGameScene extends Phaser.Scene {
     }
 
     loseLife () {
-        this.data.set(gameConfig.data.playerLivesKey, this.data.get(gameConfig.data.playerLivesKey) - 1);
-        if (this.data.get(gameConfig.data.playerLivesKey) <= 0) {
-            console.log('out of lives');
-            this.gameOver();
+        if (this.playerHasInifiniteLives !== true) {
+            this.data.set(gameConfig.data.playerLivesKey, this.data.get(gameConfig.data.playerLivesKey) - 1);
+            if (this.data.get(gameConfig.data.playerLivesKey) <= 0) {
+                // console.log('out of lives');
+                this.gameOver();
+            }
         }
     }
 

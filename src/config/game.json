@@ -6,6 +6,7 @@
         "imageFile": "spriteatlas.png",
         "jsonFile": "spriteatlas.json"
     },
+    "enableCheats": true,
     "player": {
         "startingLives": 2,
         "brickValue": 100
