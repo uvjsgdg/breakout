@@ -3,7 +3,7 @@ import Brick from '../sprites/brick';
 
 export class BlueBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'blue_brick');
+        super(scene, x, y, '01_blue_brick');
 
         this.maxLives = config.brick.colors.blue.maxLives;
         this.breakable = config.brick.colors.blue.breakable;
@@ -13,7 +13,7 @@ export class BlueBrick extends Brick {
 
 export class GreenBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'green_brick');
+        super(scene, x, y, '02_green_brick');
 
         this.maxLives = config.brick.colors.green.maxLives;
         this.breakable = config.brick.colors.green.breakable;
@@ -23,7 +23,7 @@ export class GreenBrick extends Brick {
 
 export class YellowBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'yellow_brick');
+        super(scene, x, y, '07_yellow_brick');
 
         this.maxLives = config.brick.colors.yellow.maxLives;
         this.breakable = config.brick.colors.yellow.breakable;
@@ -33,7 +33,7 @@ export class YellowBrick extends Brick {
 
 export class OrangeBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'orange_brick');
+        super(scene, x, y, '03_orange_brick');
 
         this.maxLives = config.brick.colors.orange.maxLives;
         this.breakable = config.brick.colors.orange.breakable;
@@ -43,7 +43,7 @@ export class OrangeBrick extends Brick {
 
 export class RedBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'red_brick');
+        super(scene, x, y, '05_red_brick');
 
         this.maxLives = config.brick.colors.red.maxLives;
         this.breakable = config.brick.colors.red.breakable;
@@ -53,7 +53,7 @@ export class RedBrick extends Brick {
 
 export class PurpleBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'purple_brick');
+        super(scene, x, y, '04_purple_brick');
 
         this.maxLives = config.brick.colors.purple.maxLives;
         this.breakable = config.brick.colors.purple.breakable;
@@ -63,10 +63,20 @@ export class PurpleBrick extends Brick {
 
 export class WhiteBrick extends Brick {
     constructor (scene, x, y) {
-        super(scene, x, y, 'white_brick');
+        super(scene, x, y, '06_white_brick');
 
         this.maxLives = config.brick.colors.white.maxLives;
         this.breakable = config.brick.colors.white.breakable;
+        this.lives = this.maxLives;
+    }
+}
+
+export class BrownBrick extends Brick {
+    constructor (scene, x, y) {
+        super(scene, x, y, '08_brown_brick');
+
+        this.maxLives = config.brick.colors.brown.maxLives;
+        this.breakable = config.brick.colors.brown.breakable;
         this.lives = this.maxLives;
     }
 }

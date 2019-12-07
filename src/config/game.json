@@ -50,6 +50,10 @@
             "white": {
                 "maxLives": 100,
                 "breakable": false
+            },
+            "brown": {
+                "maxLives": 4,
+                "breakable": true
             }
         }
     },
@@ -89,7 +93,11 @@
             "level_13",
             "level_14",
             "level_15",
-            "level_18"
+            "level_16",
+            "level_17",
+            "level_18",
+            "level_19",
+            "level_20"
         ]
     }
 }

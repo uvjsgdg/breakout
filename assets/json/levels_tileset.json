@@ -4,13 +4,13 @@
 			"image": "levels_tileset.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 256,
+				"w": 64,
 				"h": 256
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "blue_brick.png",
+					"filename": "01_blue_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -31,7 +31,7 @@
 					}
 				},
 				{
-					"filename": "green_brick.png",
+					"filename": "02_green_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -52,7 +52,7 @@
 					}
 				},
 				{
-					"filename": "orange_brick.png",
+					"filename": "03_orange_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -73,7 +73,7 @@
 					}
 				},
 				{
-					"filename": "purple_brick.png",
+					"filename": "04_purple_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -94,7 +94,7 @@
 					}
 				},
 				{
-					"filename": "red_brick.png",
+					"filename": "05_red_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -115,7 +115,7 @@
 					}
 				},
 				{
-					"filename": "white_brick.png",
+					"filename": "06_white_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -136,7 +136,7 @@
 					}
 				},
 				{
-					"filename": "yellow_brick.png",
+					"filename": "07_yellow_brick.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -155,6 +155,27 @@
 						"w": 64,
 						"h": 32
 					}
+				},
+				{
+					"filename": "08_brown_brick.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 32
+					},
+					"frame": {
+						"x": 0,
+						"y": 224,
+						"w": 64,
+						"h": 32
+					}
 				}
 			]
 		}
@@ -162,6 +183,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:d26d006e069ef9d6f2e0d3df95310c48:82676d757c212cbc65876fa3309c1bad:8db7a17fbfe1476247e77857ce52eab8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:ccc34b7dc8dc268ecc0f66e9a95dc732:95c47cf5234c9529b7515d268ec69364:8db7a17fbfe1476247e77857ce52eab8$"
 	}
 }
