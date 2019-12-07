@@ -36,30 +36,18 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
     onDownLeft() {
         //console.log('Caught downLeft!');
         this.paddle.setVelocity(-this.keySpeed,0);
-        if (this.ballOnPaddle) {
-            this.ball.setVelocity(-this.keySpeed,0);
-        }
     }
     onUpLeft() {
         //console.log('Caught upLeft!');
         this.paddle.setVelocity(0,0);
-        if (this.ballOnPaddle) {
-            this.ball.setVelocity(0,0);
-        }
     }
     onDownRight() {
         //console.log('Caught downRight!');
         this.paddle.setVelocity(this.keySpeed,0);
-        if (this.ballOnPaddle) {
-            this.ball.setVelocity(this.keySpeed,0);
-        }
     }
     onUpRight() {
         //console.log('Caught upRight!');
         this.paddle.setVelocity(0,0);
-        if (this.ballOnPaddle) {
-            this.ball.setVelocity(0,0);
-        }
     }
 
     // handle fire button
