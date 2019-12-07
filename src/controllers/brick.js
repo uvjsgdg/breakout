@@ -4,20 +4,25 @@ export default class BrickController extends Phaser.Events.EventEmitter {
         super();
         this.scene = scene;
         this.on('ballBrickCollision', (ball, brick) => {
-            if(brick.breakable){
-                this.brickCollision(ball, brick);
-            }
+            this.brickCollision(ball, brick);
         });
     }
 
     brickCollision(ball, brick) {
-        brick.lives--;
+        if (brick.breakable) {
+            brick.lives--;
 
-        if (ball.isExplosive || brick.lives == 0) {
-            this.breakBrick(brick);
-        }
-        else {
-            this.tintBrick(brick);
+            if (ball.isExplosive || brick.lives == 0) {
+                this.breakBrick(brick);
+            }
+            else {
+                this.tintBrick(brick);
+            }
+        } else {
+            // only break unbreakable bricks if you have an explosive ball
+            if (ball.isExplosive) {
+                this.breakBrick(brick);
+            }
         }
     }
 
