@@ -50,6 +50,20 @@
             "white": {
                 "maxLives": 100,
                 "breakable": false
+            },
+            "brown": {
+                "maxLives": 4,
+                "breakable": true
+            }
+        }
+    },
+    "powerup": {
+        "pixelWidth": 64,
+        "pixelHeight": 32, 
+        "types": {
+            "bomb": {
+                "maxLives": 1,
+                "breakable": true
             }
         }
     },
@@ -89,7 +103,19 @@
             "level_13",
             "level_14",
             "level_15",
-            "level_18"
+            "level_16",
+            "level_17",
+            "level_18",
+            "level_19",
+            "level_20",
+            "level_21",
+            "level_22",
+            "level_23",
+            "level_24",
+            "level_25",
+            "level_26",
+            "level_27",
+            "level_28"
         ]
     }
 }

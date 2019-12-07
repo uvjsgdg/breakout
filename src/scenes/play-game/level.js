@@ -50,16 +50,9 @@ export default class LevelScene extends Phaser.Scene {
         let paddle = new PaddleSprite(this, 350, 580);
         this.add.existing(paddle);
 
-        let powerup = new PowerupSprite(this, 500, 100);
-        this.add.existing(powerup);
-
         // physics enabled for each sprite
         this.physics.add.existing(paddle);
         this.physics.add.existing(ball);
-        this.physics.add.existing(powerup);
-
-        // powerup sprite physics settings
-        powerup.setVelocity(0, 100);
 
         // ball sprite physics settings
         ball.setBounce(1, 1);
@@ -75,14 +68,13 @@ export default class LevelScene extends Phaser.Scene {
             ball,
             brickGrid,
             paddle,
-            powerup
         };
     }
 
     createControllers () {
         let mainGameScene = this.scene.get('PlayGame');
 
-        let { ball, brickGrid, paddle, powerup } = this.gameObjects;
+        let { ball, brickGrid, paddle } = this.gameObjects;
 
         // controllers
         let paddleController = new PaddleController( this, paddle, ball );
@@ -97,7 +89,7 @@ export default class LevelScene extends Phaser.Scene {
         });
 
         // When a Brick is destroyed
-        brickController.on('BrickDestroyed', () => {
+        brickController.on('BrickDestroyed', (x, y) => {
             // update the score
             let mainGameScene = this.scene.get('PlayGame');
             mainGameScene.sound.play("brick_pop");
@@ -106,20 +98,29 @@ export default class LevelScene extends Phaser.Scene {
             // Check for level completion
             let { ball, brickGrid, paddle } = this.gameObjects;
             let livingBricks = brickGrid.getChildren();
-            let breakableBrick = undefined;
-            livingBricks.forEach(function(brick) {
+            let breakableBrick = false;
+            livingBricks.forEach((brick) => {
                 if (brick.breakable && brick.active) {
-                    breakableBrick = brick;
+                    breakableBrick = true;
                 }
             });
             if (!breakableBrick) {
-                this.events.emit('LevelComplete');
+                mainGameScene.events.emit('LevelComplete');
+            }
+            else {
+                let powerup = new PowerupSprite(this, x, y);
+                this.add.existing(powerup);
+                this.physics.add.existing(powerup);
+                powerup.setVelocity(0, 100);
+                this.physics.add.collider(powerup, paddle, (powerup, paddle) => {
+                    powerupController.onPaddleCollision(powerup, paddle);
+                }, null, this);
             }
         }); 
 
         // when a ball bounces off wall or ceiling
         ballController.on('WallBounce', () => {
-            // mainGameScene.sound.play("wall_bounce");
+            mainGameScene.sound.play("wall_bounce");
         });
 
         // store our create controllers into gameControllers namespace for later use
@@ -134,7 +135,7 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     createColliders () {
-        let { ball, brickGrid, paddle, powerup } = this.gameObjects;
+        let { ball, brickGrid, paddle } = this.gameObjects;
         let {
             ballController,
             brickController,
@@ -151,10 +152,6 @@ export default class LevelScene extends Phaser.Scene {
         this.physics.add.collider(ball, brickGrid, (ball, brick) => {
             brickController.emit('ballBrickCollision', ball, brick);
         }, null, this);
-
-        this.physics.add.collider(powerup, paddle, (powerup, paddle) => {
-            powerupController.onPaddleCollision(powerup, paddle);
-        }, null, this)
     }
 
     update () {

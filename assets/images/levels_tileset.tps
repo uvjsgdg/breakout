@@ -95,20 +95,20 @@
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>256</int>
+            <int>64</int>
             <key>height</key>
-            <int>256</int>
+            <int>512</int>
         </QSize>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
             <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
             <key>forceSquared</key>
-            <true/>
+            <false/>
             <key>maxRects</key>
             <struct type="AlgorithmMaxRectsSettings">
                 <key>heuristic</key>
@@ -117,7 +117,7 @@
             <key>basic</key>
             <struct type="AlgorithmBasicSettings">
                 <key>sortBy</key>
-                <enum type="AlgorithmBasicSettings::SortBy">Best</enum>
+                <enum type="AlgorithmBasicSettings::SortBy">Name</enum>
                 <key>order</key>
                 <enum type="AlgorithmBasicSettings::Order">Ascending</enum>
             </struct>
@@ -181,13 +181,15 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">spriteatlas/blue_brick.png</key>
-            <key type="filename">spriteatlas/green_brick.png</key>
-            <key type="filename">spriteatlas/orange_brick.png</key>
-            <key type="filename">spriteatlas/purple_brick.png</key>
-            <key type="filename">spriteatlas/red_brick.png</key>
-            <key type="filename">spriteatlas/white_brick.png</key>
-            <key type="filename">spriteatlas/yellow_brick.png</key>
+            <key type="filename">spriteatlas/01_blue_brick.png</key>
+            <key type="filename">spriteatlas/02_green_brick.png</key>
+            <key type="filename">spriteatlas/03_orange_brick.png</key>
+            <key type="filename">spriteatlas/04_purple_brick.png</key>
+            <key type="filename">spriteatlas/05_red_brick.png</key>
+            <key type="filename">spriteatlas/06_white_brick.png</key>
+            <key type="filename">spriteatlas/07_yellow_brick.png</key>
+            <key type="filename">spriteatlas/08_brown_brick.png</key>
+            <key type="filename">spriteatlas/09_powerup_bomb.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -203,13 +205,15 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>spriteatlas/purple_brick.png</filename>
-            <filename>spriteatlas/red_brick.png</filename>
-            <filename>spriteatlas/white_brick.png</filename>
-            <filename>spriteatlas/blue_brick.png</filename>
-            <filename>spriteatlas/green_brick.png</filename>
-            <filename>spriteatlas/orange_brick.png</filename>
-            <filename>spriteatlas/yellow_brick.png</filename>
+            <filename>spriteatlas/01_blue_brick.png</filename>
+            <filename>spriteatlas/02_green_brick.png</filename>
+            <filename>spriteatlas/03_orange_brick.png</filename>
+            <filename>spriteatlas/04_purple_brick.png</filename>
+            <filename>spriteatlas/05_red_brick.png</filename>
+            <filename>spriteatlas/06_white_brick.png</filename>
+            <filename>spriteatlas/07_yellow_brick.png</filename>
+            <filename>spriteatlas/08_brown_brick.png</filename>
+            <filename>spriteatlas/09_powerup_bomb.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

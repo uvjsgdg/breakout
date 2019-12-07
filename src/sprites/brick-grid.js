@@ -1,6 +1,6 @@
 // The Brick Grid is concerned with display of a grid of bricks 
 import config from '../config/game';
-import {BlueBrick, GreenBrick, YellowBrick, OrangeBrick, RedBrick, PurpleBrick, WhiteBrick} from './coloredBrick';
+import {BlueBrick, GreenBrick, YellowBrick, OrangeBrick, RedBrick, PurpleBrick, WhiteBrick, BrownBrick} from './coloredBrick';
 
 export default class BrickGrid extends Phaser.Physics.Arcade.StaticGroup {
     constructor (scene, x, y, level) {
@@ -40,7 +40,8 @@ export default class BrickGrid extends Phaser.Physics.Arcade.StaticGroup {
             "orange": OrangeBrick,
             "red": RedBrick,
             "purple": PurpleBrick,
-            "white": WhiteBrick
+            "white": WhiteBrick,
+            "brown": BrownBrick,
         };
 
         const BrickClass = map[brickType];
