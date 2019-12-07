@@ -112,7 +112,7 @@ export default class PaddleController extends Phaser.Events.EventEmitter {
             //  Magnify delta * 10
             this.ball.setVelocityX((10 * diff) * this.ball.velocityMultiplier);
         }
-        console.log("x,y speed: " + this.ball.body.velocity.x + ", " + this.ball.body.velocity.y);
+        // console.log("x,y speed: " + this.ball.body.velocity.x + ", " + this.ball.body.velocity.y);
     }
 
     resetBall() {
