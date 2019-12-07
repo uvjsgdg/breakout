@@ -13,7 +13,7 @@ export default class BrickController extends Phaser.Events.EventEmitter {
     brickCollision(ball, brick) {
         brick.lives--;
 
-        if (brick.lives == 0) {
+        if (ball.isExplosive || brick.lives == 0) {
             this.breakBrick(brick);
         }
         else {

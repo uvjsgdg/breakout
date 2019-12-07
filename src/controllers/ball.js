@@ -4,8 +4,17 @@ export default class BallController extends Phaser.Events.EventEmitter {
     constructor(scene, ball) {
         super();
         this.ball = ball;
+        this.scene = scene;
 
-        scene.physics.world.on('worldbounds', (body, up, down, left, right) => { this.worldBounds(body, up, down, left, right) });
+        this.scene.physics.world.on('worldbounds', (body, up, down, left, right) => { this.worldBounds(body, up, down, left, right) });
+
+        this.setupEventListeners();
+    }
+
+    setupEventListeners () {
+        this.scene.events.on("BallIsExplosiveStarted", () => {
+            this.ball.setIsExplosive(true);
+        });
     }
 
     worldBounds(body, up, down, left, right) {

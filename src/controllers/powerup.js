@@ -31,7 +31,7 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
         
     }
 
-    generatePowerup(x, y, PowerupClass = PowerupSprite) {
+    generatePowerup(x, y, PowerupClass = PowerupSprite, collisionCallback = () => {}) {
         // create new powerup
         let powerup = new PowerupClass(this.scene, x, y);
         this.scene.add.existing(powerup);
@@ -42,6 +42,8 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
 
         // let the paddle collide with it
         this.scene.physics.add.collider(powerup, this.paddleSprite, (powerup, paddle) => {
+            collisionCallback(powerup, paddle);
+
             this.onPaddleCollision(powerup, paddle);
         }, null, this.scene);
     }
@@ -64,6 +66,8 @@ export default class PowerupController extends Phaser.Events.EventEmitter {
             throw new Error("could not find powerup", tile);
         }
 
-        this.generatePowerup(x, y, PowerupClass);
+        this.generatePowerup(x, y, PowerupClass, (powerup, paddle) => {
+            this.scene.events.emit("BallIsExplosiveStarted");
+        });
     } 
 }

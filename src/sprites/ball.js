@@ -28,5 +28,21 @@ export default class Ball extends Phaser.Physics.Arcade.Sprite {
             this.setVelocityX((this.body.velocity.x * this.velocityMultiplier));
             // console.log("x,y speed: " + this.body.velocity.x + ", " + this.body.velocity.y);
         });
+
+        this._isExplosive = false;
+
+        this.setupEventListeners();
+    }
+
+    setIsExplosive (isExplosive) {
+        this._isExplosive = isExplosive;
+    }
+
+    get isExplosive () { return this._isExplosive; }
+
+    setupEventListeners () {
+        this.scene.events.on("BallIsExplosiveStarted", () => {
+            this.setIsExplosive(true);
+        });
     }
 }
